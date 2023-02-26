@@ -1,6 +1,6 @@
 import classes from './PetsPage.module.scss'
 
-function PetsPage() {
+const PetsPage = () => {
   return (
     <div className={classes.PetsPage}>
       Питомцы

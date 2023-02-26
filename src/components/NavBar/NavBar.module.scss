@@ -3,10 +3,9 @@
   display: flex;
   margin: 30px auto;
   justify-content: space-around;
-}
-
-.NavBar a {
-  font-size: 20px;
-  text-decoration: none;
-  color: black;
+  .link {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+  }
 }

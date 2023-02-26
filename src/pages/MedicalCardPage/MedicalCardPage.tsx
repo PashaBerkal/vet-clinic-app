@@ -1,6 +1,6 @@
 import classes from './MedicalCardPage.module.scss'
 
-function MedicalCardPage() {
+const MedicalCardPage =() => {
   return (
     <div className={classes.MedicalCardPage}>
       Медкарта

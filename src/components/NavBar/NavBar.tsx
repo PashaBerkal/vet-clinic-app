@@ -1,13 +1,13 @@
-import classes from './NavBar.module.scss'
 import {Link} from 'react-router-dom'
+import classes from './NavBar.module.scss'
 
-function NavBar() {
+const NavBar = () => {
   return (
-    <div className={classes.NavBar}>
-      <Link to='/'>Главная</Link>
-      <Link to='/MedicalCardPage'>Медкарта</Link>
-      <Link to='/PetsPage'>Питомцы</Link>
-      <Link to='/RecordsPage'>Записи</Link>
+    <div>
+      <Link className={classes.link} to='/'>Главная</Link>
+      <Link className={classes.link} to='/MedicalCardPage'>Медкарта</Link>
+      <Link className={classes.link} to='/PetsPage'>Питомцы</Link>
+      <Link className={classes.link} to='/RecordsPage'>Записи</Link>
     </div>
   );
 }

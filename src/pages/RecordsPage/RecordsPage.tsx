@@ -1,6 +1,6 @@
 import classes from './RecordsPage.module.scss'
 
-function RecordsPage() {
+const RecordsPage = () => {
   return (
     <div className={classes.RecordsPage}>
       Записи

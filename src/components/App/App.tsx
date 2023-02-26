@@ -1,12 +1,11 @@
 import Layout from '../../hoc/Layout/Layout';
-import {Routes, Route, Link} from 'react-router-dom'
-import classes from './App.module.scss'
+import {Routes, Route } from 'react-router-dom'
 import MainPage from '../../pages/MainPage';
 import MedicalCardPage from '../../pages/MedicalCardPage';
 import PetsPage from '../../pages/PetsPage';
 import RecordsPage from '../../pages/RecordsPage';
 
-function App() {
+const App = () => {
   let routes = (
     <Routes>
       <Route path='/' element={<MainPage/>}/>
