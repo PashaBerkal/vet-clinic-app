@@ -1,4 +1,5 @@
-import NavBar from '../../components/NavBar';
+import Header from "../../components/Header";
+import classes from './Layout.module.scss'
 
 type Props = {
     children: React.ReactNode;
@@ -6,8 +7,8 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
     return (
-        <div>
-            <NavBar />
+        <div className={classes.Layout}>
+            <Header />
             <main>
                 {children}
             </main>
