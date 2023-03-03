@@ -12,7 +12,6 @@ const App = () => {
       <Route path='/MedicalCardPage' element={<MedicalCardPage/>}/>
       <Route path='/PetsPage' element={<PetsPage/>}/>
       <Route path='/RecordsPage' element={<RecordsPage/>}/>
-      {/* <Route path='*' element={<NoteFoundPage/>}/> */}
     </Routes>
   )
   return (

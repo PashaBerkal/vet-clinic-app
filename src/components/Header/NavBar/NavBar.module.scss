@@ -1,7 +1,6 @@
 $MuiButtonActive: 'button[aria-selected="true"]';
 $MuiIndicator: 'span[class*="MuiTabs-indicator"]';
 
-
 .NavBar {
     display: flex;
     justify-content: space-between;
@@ -11,6 +10,7 @@ $MuiIndicator: 'span[class*="MuiTabs-indicator"]';
             padding-bottom: 20px;
             text-transform: none;
             font-weight: bold;
+            color: #47464F;
         }
         #{$MuiButtonActive}{
             color: rgba(89, 84, 168, 1);
@@ -18,25 +18,7 @@ $MuiIndicator: 'span[class*="MuiTabs-indicator"]';
         #{$MuiIndicator}{
             background-color: rgba(89, 84, 168, 1);
         }
-
-        .link {
-            margin-right: 36px;
-            text-decoration: none;
-            color: #47464F;
-            font-weight: 500;
-            font-size: 16px;
-        }
-
-        .active {
-            height: 20px;
-            margin-right: 36px;
-            text-decoration: none;
-            color: #5954A8;
-            font-weight: 500;
-            font-size: 17px;
-        }
     }
-
     .button {
         height: 40px;
         background: #00639B;

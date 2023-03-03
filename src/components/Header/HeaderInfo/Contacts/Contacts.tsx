@@ -6,7 +6,7 @@ const Contacts = () => {
         <div className={classes.Contacts}>
             <div className={classes.logo}>
                 <Logo/>
-                <div className={classes.logoText}> ВСЕ ВИДЫ ВЕТЕРИНАРНОЙ <br/> ДИАГНОСТИКИ И ЛЕЧЕНИЯ</div>
+                <div className={classes.logoText}> ВСЕ ВИДЫ ВЕТЕРИНАРНОЙ<br/>ДИАГНОСТИКИ И ЛЕЧЕНИЯ</div>
             </div>
             <div>
                 <div className={classes.phoneText}>Телефон для записи</div>

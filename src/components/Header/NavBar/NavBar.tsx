@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import classes from './NavBar.module.scss'
 import Button from '@material-ui/core/Button';
 import { ReactComponent as SignUp } from '../assets/SignUp.svg';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
+import classes from './NavBar.module.scss'
 
 const NavBar = () => {
   const [value, setValue] = useState('/');
@@ -13,7 +13,6 @@ const NavBar = () => {
     setValue(newValue);
     navigate(newValue);
   };
-
   return (
     <div className={classes.NavBar}>
       <div className={classes.pages}>
