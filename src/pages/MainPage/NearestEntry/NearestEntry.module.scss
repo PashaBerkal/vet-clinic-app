@@ -1,3 +1,51 @@
-.NearestEntry{
-    border: 1px solid black
+.NearestEntry {
+    position: relative;
+    background: #CEE5FF;
+    border-radius: 12px;
+    .paws {
+        position: absolute;
+        right: 10px;
+    }
+    .entryContainer {
+        padding: 20px;
+        .title {
+            margin-top: 20px;
+            font-weight: 500;
+            font-size: 22px;
+            color: #00639B;
+        }
+        .entryInfo {
+            margin-top: 30px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 20%;
+            .baseEntryInfoInner {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                font-weight: 500;
+                font-size: 18px;
+                color: #1C1B1F;
+    
+                span {
+                    font-size: 16px;
+                    color: #47464F;
+                }
+            }
+            .entryTime, .entryProcedure {
+               @extend .baseEntryInfoInner;
+            }
+
+        }
+        .button {
+            border: 1px solid #817f88;
+            color: #00639B;
+            display: block;
+            width: 100%;
+            margin: 34px auto 0;
+            font-weight: 500;
+            font-size: 16px;
+            border-radius: 12px;
+        }
+    }
 }
