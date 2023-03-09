@@ -1,0 +1,36 @@
+.pet{
+    padding: 0 15px;
+    gap: 20px;
+    width: 100%;
+    min-height: 66px;
+    display: flex;
+    align-items: center;
+    background: #FFFBFF;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    .petLogo{
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #e3dfff;
+        border-radius: 100%
+    }
+    .petInfo{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .name{
+            font-weight: 600;
+            font-size: 16px;
+            color: #1C1B1F;
+        }
+        .breed{
+            font-weight: 400;
+            font-size: 14px;
+            color: #47464F;
+        }
+    }
+}
