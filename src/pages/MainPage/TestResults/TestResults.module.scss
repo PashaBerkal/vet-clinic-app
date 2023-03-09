@@ -1,3 +1,39 @@
 .TestResults{
-    border: 1px solid black;
+    position: relative;
+    padding: 20px;
+    background: #FFD8E9;
+    border-radius: 12px;
+    .resultsTitle{
+        color: #7A5267;
+        font-weight: 500;
+        font-size: 22px;
+        margin-top: 15px;
+    }
+    .resultsInfo{
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-weight: 500;
+        font-size: 18px;
+        color: #1C1B1F;
+        span {
+            font-size: 16px;
+            color: #47464F;
+        }
+    }
+    .resultsMore{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        .button{
+            color: #7A5267;
+            font-weight: 500;
+            font-size: 14px;
+            .text{
+                margin-right: 5px;
+            }
+        }
+    }
 }
