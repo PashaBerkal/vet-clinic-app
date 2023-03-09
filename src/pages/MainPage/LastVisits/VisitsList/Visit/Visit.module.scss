@@ -12,6 +12,7 @@
         justify-content: start;
         gap: 20px;
         width: 50%;
+        align-items: center;
         .logo{
             display: flex;
             flex-shrink: 0;
@@ -23,15 +24,10 @@
             border-radius: 100px;
         }
         .text{
-            display: flex;
-            flex-direction: column;
-            justify-content: end;
-            gap: 10px;
             .name{
                 font-weight: 500;
                 font-size: 17px;
                 color: #1C1B1F;
-                line-height: 0px;
             }
             .date{
                 font-weight: 400;
@@ -46,15 +42,10 @@
         align-items: center;
         width: 50%;
         .text{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 40px;
             .result{
                 font-weight: 500;
                 font-size: 17px;
                 color: #1C1B1F;
-                line-height: 0px;
             }
             .procedure{
                 font-weight: 400;
