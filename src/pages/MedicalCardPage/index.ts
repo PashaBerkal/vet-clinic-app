@@ -1,1 +1,1 @@
-export {default} from './MedicalCardPage';
+export { default } from './MedicalCardPage';

@@ -1,1 +1,1 @@
-export {default} from './NearestEntry'
+export { default } from './NearestEntry';

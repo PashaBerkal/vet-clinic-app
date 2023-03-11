@@ -1,1 +1,1 @@
-export {default} from './PetsPage';
+export { default } from './PetsPage';

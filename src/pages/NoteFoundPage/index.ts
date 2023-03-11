@@ -1,1 +1,1 @@
-export {default} from './NoteFoundPage'
+export { default } from './NoteFoundPage';
