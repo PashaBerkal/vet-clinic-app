@@ -1,3 +1,17 @@
 .LastVisits{
-    border: 1px solid black;
+    .visitsTop{
+        padding-right: 10px;
+        display: flex;
+        justify-content: space-between;
+        .visitsTitle{
+            font-weight: 500;
+            font-size: 24px;
+        }
+        .visitsAll{
+            cursor: pointer;
+            color: #5954A8;
+            font-weight: 500;
+            font-size: 17px;
+        }
+    }
 }

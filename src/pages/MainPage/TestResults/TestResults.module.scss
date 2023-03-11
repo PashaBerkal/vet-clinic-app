@@ -1,4 +1,7 @@
 .TestResults{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     position: relative;
     padding: 20px;
     background: #FFD8E9;
@@ -7,10 +10,8 @@
         color: #7A5267;
         font-weight: 500;
         font-size: 22px;
-        margin-top: 15px;
     }
     .resultsInfo{
-        margin-top: 25px;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -23,7 +24,6 @@
         }
     }
     .resultsMore{
-        margin-top: 20px;
         display: flex;
         justify-content: space-between;
         align-items: start;
