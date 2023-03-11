@@ -1,0 +1,61 @@
+.Visit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 25px 16px 16px;
+    min-height: 66px;
+    background: #FFFBFF;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    .leftPositionInfo{
+        display: flex;
+        justify-content: start;
+        gap: 20px;
+        width: 50%;
+        align-items: center;
+        .logo{
+            display: flex;
+            flex-shrink: 0;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: #ffd8e9;
+            border-radius: 100px;
+        }
+        .text{
+            .name{
+                font-weight: 500;
+                font-size: 17px;
+                color: #1C1B1F;
+            }
+            .date{
+                font-weight: 400;
+                font-size: 15px;
+                color: #47464F;
+            }
+        }
+    }
+    .rightPositionInfo{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 50%;
+        .text{
+            .result{
+                font-weight: 500;
+                font-size: 17px;
+                color: #1C1B1F;
+            }
+            .procedure{
+                font-weight: 400;
+                font-size: 15px;
+                color: #47464F;
+            }
+        }
+    }
+    &:hover{
+        background: #e8e4f3;
+        transition: all 0.5s;
+    }
+}

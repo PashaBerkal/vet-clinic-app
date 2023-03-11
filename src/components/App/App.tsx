@@ -6,7 +6,7 @@ import PetsPage from '../../pages/PetsPage';
 import RecordsPage from '../../pages/RecordsPage';
 
 const App = () => {
-  let routes = (
+  let routes: JSX.Element = (
     <Routes>
       <Route path='/' element={<MainPage/>}/>
       <Route path='/MedicalCardPage' element={<MedicalCardPage/>}/>

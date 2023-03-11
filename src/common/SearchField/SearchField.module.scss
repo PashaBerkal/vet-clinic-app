@@ -1,0 +1,13 @@
+.SearchField{
+    position: relative; 
+    margin-top: 25px;
+    .textField{
+        width: 100%;
+    }
+    .icon{
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        z-index: 2;
+    }
+}
