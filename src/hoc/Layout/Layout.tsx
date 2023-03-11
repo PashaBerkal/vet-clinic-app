@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import classes from './Layout.module.scss'
 
@@ -12,6 +13,7 @@ const Layout = ({ children }: Props) => {
             <main>
                 {children}
             </main>
+            <Footer/>
         </div>
     );
 }
