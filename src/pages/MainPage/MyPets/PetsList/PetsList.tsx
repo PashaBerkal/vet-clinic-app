@@ -1,7 +1,13 @@
 import Pet from './Pet/Pet';
 import classes from './PetsList.module.scss'
 
-const pets = [
+type PetItem = {
+    id: number;
+    name: string;
+    breed: string
+}
+
+const pets: PetItem[] = [
     {
         name: 'Кеша',
         breed: 'Ориентальная кошка, dsdsdsdssnsdfjbs dkfhadfbasdfbdabfkafbdfnab ',

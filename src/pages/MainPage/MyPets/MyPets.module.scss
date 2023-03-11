@@ -6,27 +6,6 @@
         color: #1C1B1F;
         margin-top: 2px;
     }
-    .box{
-        position: relative; 
-        margin-top: 25px;
-        .textField{
-            width: 100%;
-        }
-        .icon{
-            position: absolute;
-            top: 20%;
-            right: 5%;
-            z-index: 2;
-        }
-    }
-    ::-webkit-scrollbar {
-        width: 5px;
-    }
-    ::-webkit-scrollbar-thumb {
-        background-color: #787680;
-        border-radius: 12px;
-    }
 }
-
 
 
