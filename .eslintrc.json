@@ -57,6 +57,14 @@
                 "return": true,
                 "arrow": true
             }
+        ],
+        "react/require-default-props": "off",
+        "object-curly-newline": [
+            "error",
+            {
+                "multiline": true,
+                "consistent": true
+            }
         ]
     },
     "settings": {
@@ -66,7 +74,12 @@
             }
         },
         "import/resolver": {
-            "typescript": {}
+            "typescript": {},
+            "node": {
+                "moduleDirectory": [
+                    "node_modules"
+                ]
+            }
         }
     }
 }

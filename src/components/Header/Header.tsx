@@ -1,21 +1,18 @@
-import HeaderInfo from "./HeaderInfo";
-import NavBar from "./NavBar";
-import Container from '../../hoc/Container'
-import classes from './Header.module.scss'
+import HeaderInfo from './HeaderInfo';
+import NavBar from './NavBar';
+import Container from '../../hoc/Container';
+import classes from './Header.module.scss';
 
-
-const Header = () => {
-    return (
-        <div className={classes.Header}>
-            <Container>
-                <HeaderInfo />
-            </Container>
-            <div className={classes.line}/>
-            <Container>
-                <NavBar />
-            </Container>
-        </div>
-    );
-};
+const Header = () => (
+  <div className={classes.Header}>
+    <Container>
+      <HeaderInfo />
+    </Container>
+    <div className={classes.line} />
+    <Container>
+      <NavBar />
+    </Container>
+  </div>
+);
 
 export default Header;

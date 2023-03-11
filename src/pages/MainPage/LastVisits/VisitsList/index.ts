@@ -1,1 +1,1 @@
-export {default} from './VisitsList'
+export { default } from './VisitsList';
