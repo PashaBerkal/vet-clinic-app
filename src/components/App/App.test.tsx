@@ -11,3 +11,8 @@ test("renders learn react link", () => {
   const linkElement = screen.getByText(/главная/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+test("should fail because 1 + 2 does not equal 4", () => {
+  const result = 1 + 2;
+  expect(result).toBe(4);
+});
