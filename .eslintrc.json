@@ -65,6 +65,12 @@
                 "multiline": true,
                 "consistent": true
             }
+        ],
+        "react/jsx-one-expression-per-line": [
+            "error",
+            {
+                "allowSameLine": true
+            }
         ]
     },
     "settings": {
