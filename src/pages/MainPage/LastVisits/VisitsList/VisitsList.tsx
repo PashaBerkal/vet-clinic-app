@@ -43,22 +43,16 @@ const lastVisits: VisitItem[] = [
 const VisitsList = () => {
     return (
         <div className={classes.VisitsList}>
-            {lastVisits.map((visit, index) => {
-                if(index <= 2){
-                    return (
-                            <Visit 
-                                name={visit.name} 
-                                date={visit.date} 
-                                procedure={visit.procedure}
-                                result={visit.result}
-                                key={visit.id + visit.name}
-                            />
-                    )
-                } else{
-                    return(
-                        null
-                    )
-                }
+            {lastVisits.slice(0, 3).map((visit) => {
+                return (
+                    <Visit 
+                        name={visit.name} 
+                        date={visit.date} 
+                        procedure={visit.procedure}
+                        result={visit.result}
+                        key={visit.id + visit.name}
+                    />
+                )
             })}
         </div>
     );
