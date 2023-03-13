@@ -1,8 +1,7 @@
-name: Deploy Vet-clinic App
+name: Test & lint
 on:
   push:
     branches:
-      - 'master'
       - 'feature/**'
     # paths-ignore:
     #   - .github/workflows/*
