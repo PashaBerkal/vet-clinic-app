@@ -1,8 +1,9 @@
 name: Deploy Vet-clinic App
-on: push
-  branches:
-    - 'master'
-    - 'featur/**'
+on:
+  push:
+    branches:
+      - 'master'
+      - 'featur/**'
 jobs:
   test:
     runs-on: ubuntu-latest
