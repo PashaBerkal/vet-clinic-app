@@ -3,22 +3,20 @@ on:
   push:
     branches:
       - 'feature/**'
+    # paths-ignore:
+    #   - .github/workflows/*
 jobs:
   test:
     runs-on: ubuntu-latest
-    outputs:
-      node-modules: ${{ steps.cache.outputs.cache-hit }}
     steps:
       - name: Get repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Cache deps
-        id: cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
       - name: Test application
         run: npm run test
@@ -27,24 +25,13 @@ jobs:
     needs: test
     steps:
       - name: Get repository code
-        uses: actions/checkout@v2
-      - name: Download node_modules cache
-        uses: actions/download-artifact@v2
+        uses: actions/checkout@v3
+      - name: Cache deps
+        uses: actions/cache@v3
         with:
-          name: node-modules
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
       - name: Lint application
         run: npm run lint
-    outputs:
-      node-modules: ${{ needs.test.outputs.node-modules }}
-  artifacts:
-    name: node-modules
-    depends-on: lint
-    if: always()
-    paths:
-      - ~/.npm/
-    expire-in: 1 day
-    retention-days: 7
-    upload-to: ''
