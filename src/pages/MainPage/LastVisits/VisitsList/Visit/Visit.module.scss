@@ -1,4 +1,4 @@
-.Visit{
+.Visit {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,13 +7,16 @@
     background: #FFFBFF;
     border-radius: 12px;
     margin-bottom: 10px;
-    .leftPositionInfo{
+
+    .leftPositionInfo {
+
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         gap: 20px;
         width: 50%;
         align-items: center;
-        .logo{
+
+        .logo {
             display: flex;
             flex-shrink: 0;
             justify-content: center;
@@ -23,38 +26,44 @@
             background: #ffd8e9;
             border-radius: 100px;
         }
-        .text{
-            .name{
+
+        .text {
+            .name {
                 font-weight: 500;
                 font-size: 17px;
                 color: #1C1B1F;
             }
-            .date{
+
+            .date {
                 font-weight: 400;
                 font-size: 15px;
                 color: #47464F;
             }
         }
     }
-    .rightPositionInfo{
+
+    .rightPositionInfo {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 50%;
-        .text{
-            .result{
+
+        .text {
+            .result {
                 font-weight: 500;
                 font-size: 17px;
                 color: #1C1B1F;
             }
-            .procedure{
+
+            .procedure {
                 font-weight: 400;
                 font-size: 15px;
                 color: #47464F;
             }
         }
     }
-    &:hover{
+
+    &:hover {
         background: #e8e4f3;
         transition: all 0.5s;
     }
