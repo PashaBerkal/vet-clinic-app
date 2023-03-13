@@ -1,5 +1,9 @@
 name: Build & Deploy
-on: [push, workflow_dispatch]
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
+    # Only run the job when the pull request is merged
 jobs:
   build:
     runs-on: ubuntu-latest
