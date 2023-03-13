@@ -12,6 +12,7 @@ jobs:
         run: npm run test
   lint:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Get repository code
         uses: actions/checkout@v3
