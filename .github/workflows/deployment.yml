@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - 'master'
-      - 'featur/**'
+      - 'feature/**'
 jobs:
   test:
     runs-on: ubuntu-latest
