@@ -1,4 +1,4 @@
-name: Test & lint
+name: Test & Lint
 on:
   push:
     branches:
@@ -6,45 +6,34 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    outputs:
-      node-modules: ${{ steps.cache.outputs.cache-hit }}
     steps:
-      - name: Get repository code
+      - name: Checkout code
         uses: actions/checkout@v2
-      - name: Cache deps
-        id: cache
+      - name: Cache dependencies
         uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
-      - name: Test application
+      - name: Test
         run: npm run test
   lint:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Get repository code
+      - name: Checkout code
         uses: actions/checkout@v2
-      - name: Download node_modules cache
-        uses: actions/download-artifact@v2
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
-          name: node-modules
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
-      - name: Lint application
+      - name: Lint
         run: npm run lint
-    outputs:
-      node-modules: ${{ needs.test.outputs.node-modules }}
-  artifacts:
-    name: node-modules
-    depends-on: lint
-    if: always()
-    paths:
-      - ~/.npm/
-    expire-in: 1 day
-    retention-days: 7
-    upload-to: ''
