@@ -2,7 +2,6 @@
     min-height: 180px;
     background: #e5e1ec;
     padding: 40px 0 30px;
-    margin-top: 20px;
     .wrapper {
         display: flex;
         justify-content: space-between;
@@ -27,6 +26,42 @@
             font-size: 14px;
             color: #001D33;
             margin-top: 8px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .Footer {
+        .wrapper {
+            .logo {
+                .logoText {
+                    font-size: 13px;
+                }
+            }
+            .title {
+                font-size: 14px;
+            }
+            .text{
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .Footer {
+        .wrapper {
+            .logo {
+                .logoText {
+                    font-size: 12px;
+                }
+            }
+            .title {
+                font-size: 13px;
+            }
+            .text{
+                font-size: 10px;
+            }
         }
     }
 }

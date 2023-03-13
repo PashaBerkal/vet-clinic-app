@@ -37,3 +37,58 @@
         }
     }
 }
+
+@media (max-width: 1400px) { 
+    .TestResults{
+        .resultsTitle{
+            font-size: 20px;
+        }
+        .resultsInfo{
+            font-size: 16px;
+            span {
+                font-size: 14px;
+            }
+        }
+        .resultsMore{
+            .button{
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) { 
+    .TestResults{
+        .resultsTitle{
+            font-size: 18px;
+        }
+        .resultsInfo{
+            font-size: 14px;
+            span {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) { 
+    .TestResults{
+        .resultsTitle{
+            font-size: 16px;
+        }
+        .resultsInfo{
+            font-size: 13px;
+            span {
+                font-size: 10px;
+            }
+        }
+    }
+    .resultsMore{
+        .button{
+            font-size: 10px;
+            .text{
+                margin-right: 0px;
+            }
+        }
+    }
+}

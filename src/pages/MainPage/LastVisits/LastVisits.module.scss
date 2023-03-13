@@ -5,13 +5,53 @@
         justify-content: space-between;
         .visitsTitle{
             font-weight: 500;
-            font-size: 24px;
+            font-size: 22px;
         }
         .visitsAll{
             cursor: pointer;
             color: #5954A8;
             font-weight: 500;
             font-size: 17px;
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .LastVisits{
+        .visitsTop{
+            .visitsTitle{
+                font-size: 20px;
+            }
+            .visitsAll{
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .LastVisits{
+        .visitsTop{
+            .visitsTitle{
+                font-size: 18px;
+            }
+            .visitsAll{
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .LastVisits{
+        .visitsTop{
+            margin-top: 4px;
+            .visitsTitle{
+                font-size: 16px;
+            }
+            .visitsAll{
+                font-size: 13px;
+            }
         }
     }
 }

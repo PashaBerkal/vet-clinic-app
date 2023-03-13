@@ -1,8 +1,9 @@
 .MainPage{
   background: #f4eff4;
+  padding: 20px 0;
   .gridContainer {
-    margin: 42px auto 0;
-    height: 518px;
+    margin: 0 auto;
+    height: 550px;
     display: grid;
     grid-template: 42% 55% / 29% 68% ;
     gap: 3%;
@@ -12,6 +13,22 @@
       gap: 3%;
     }
   }
-  
+}
+
+@media (max-width: 1400px) { 
+  .MainPage{
+    .gridContainer{
+      grid-template: 40% 57% / 29% 68% ;
+    }
+  }
+}
+
+@media (max-width: 992px) { 
+  .MainPage{
+    .gridContainer{
+      grid-template: 33% 62% / 29% 68% ;
+      gap: 5%;
+    }
+  }
 }
 

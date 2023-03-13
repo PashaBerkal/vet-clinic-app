@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 25px 16px 16px;
-    min-height: 66px;
+    padding: 0 25px 0 16px;
+    min-height: 74px;
     background: #FFFBFF;
     border-radius: 12px;
     margin-bottom: 10px;
@@ -26,12 +26,12 @@
         .text{
             .name{
                 font-weight: 500;
-                font-size: 17px;
+                font-size: 18px;
                 color: #1C1B1F;
             }
             .date{
                 font-weight: 400;
-                font-size: 15px;
+                font-size: 16px;
                 color: #47464F;
             }
         }
@@ -44,12 +44,12 @@
         .text{
             .result{
                 font-weight: 500;
-                font-size: 17px;
+                font-size: 18px;
                 color: #1C1B1F;
             }
             .procedure{
                 font-weight: 400;
-                font-size: 15px;
+                font-size: 16px;
                 color: #47464F;
             }
         }
@@ -57,5 +57,85 @@
     &:hover{
         background: #e8e4f3;
         transition: all 0.5s;
+    }
+}
+
+@media (max-width: 1400px) { 
+    .Visit{
+        min-height: 72px;
+        margin-bottom: 19px;
+        .leftPositionInfo{
+            .text{
+                .name{
+                    font-size: 16px;
+                }
+                .date{
+                    font-size: 14px;
+                }
+            }
+        }
+        .rightPositionInfo{
+            .text{
+                .result{
+                    font-size: 16px;
+                }
+                .procedure{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .Visit{
+        min-height: 73px;
+        margin-bottom: 17px;
+        .leftPositionInfo{
+            .text{
+                .name{
+                    font-size: 14px;
+                }
+                .date{
+                    font-size: 12px;
+                }
+            }
+        }
+        .rightPositionInfo{
+            .text{
+                .result{
+                    font-size: 14px;
+                }
+                .procedure{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 992px) {
+    .Visit{
+        min-height: 79px;
+        margin-bottom: 18px;
+        .leftPositionInfo{
+            .text{
+                .name{
+                    font-size: 13px;
+                }
+                .date{
+                    font-size: 10px;
+                }
+            }
+        }
+        .rightPositionInfo{
+            .text{
+                .result{
+                    font-size: 13px;
+                }
+                .procedure{
+                    font-size: 10px;
+                }
+            }
+        }
     }
 }

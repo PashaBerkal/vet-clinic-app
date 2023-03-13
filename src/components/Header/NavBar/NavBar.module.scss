@@ -26,3 +26,30 @@ $MuiIndicator: 'span[class*="MuiTabs-indicator"]';
         text-transform: none;
     }
 }
+
+@media (max-width: 1200px) { 
+    .NavBar {
+        .pages {
+            button{
+                font-size: 13px;
+            }
+        }
+        .button {
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 992px) { 
+    .NavBar {
+        margin-top: 11px;
+        .pages {
+            button{
+                font-size: 12px;
+            }
+        }
+        .button {
+            font-size: 10px;
+        }
+    }
+}

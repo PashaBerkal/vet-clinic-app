@@ -2,7 +2,7 @@
     padding: 0 15px;
     gap: 20px;
     width: 100%;
-    min-height: 66px;
+    min-height: 74px;
     display: flex;
     align-items: center;
     background: #FFFBFF;
@@ -24,17 +24,59 @@
         justify-content: space-between;
         .name{
             font-weight: 600;
-            font-size: 16px;
+            font-size: 18px;
             color: #1C1B1F;
         }
         .breed{
             font-weight: 400;
-            font-size: 14px;
+            font-size: 16px;
             color: #47464F;
         }
     }
     &:hover{
         background: #e8e4f3;
         transition: all 0.5s;
+    }
+}
+
+@media (max-width: 1400px) { 
+    .pet{
+        min-height: 72px;
+        .petInfo{
+            .name{
+                font-size: 16px;
+            }
+            .breed{
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) { 
+    .pet{
+        min-height: 73px;
+        .petInfo{
+            .name{
+                font-size: 14px;
+            }
+            .breed{
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) { 
+    .pet{
+        min-height: 59px;
+        .petInfo{
+            .name{
+                font-size: 13px;
+            }
+            .breed{
+                font-size: 10px;
+            }
+        }
     }
 }
