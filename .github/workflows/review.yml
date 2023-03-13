@@ -1,37 +1,40 @@
-name: Test & lint
+name: Test & Lint
 on:
   push:
     branches:
       - 'feature/**'
-    # paths-ignore:
-    #   - .github/workflows/*
+      #
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Get repository code
-        uses: actions/checkout@v3
-      - name: Cache deps
-        uses: actions/cache@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Test application
+      - name: Test
         run: npm run test
   lint:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Get repository code
-        uses: actions/checkout@v3
-      - name: Cache deps
-        uses: actions/cache@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Cache dependencies
+        uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Lint application
+      - name: Lint
         run: npm run lint
