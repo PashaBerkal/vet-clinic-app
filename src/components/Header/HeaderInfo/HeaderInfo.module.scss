@@ -2,3 +2,10 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media (max-width: 992px) { 
+    .HeaderInfo {
+        font-size: 12px;
+        align-items: center;
+    }
+}
