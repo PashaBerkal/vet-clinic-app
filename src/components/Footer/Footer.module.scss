@@ -5,23 +5,27 @@
     .wrapper {
         display: flex;
         justify-content: space-between;
-        align-items: start;
+        align-items: flex-start;
+
         .logo {
             display: flex;
             gap: 10px;
             align-items: center;
+
             .logoText {
                 font-weight: 500;
                 font-size: 14px;
                 color: #1C1364;
             }
         }
+
         .title {
             font-weight: 500;
             font-size: 16px;
             color: #00639B;
         }
-        .text{
+
+        .text {
             font-weight: 400;
             font-size: 14px;
             color: #001D33;

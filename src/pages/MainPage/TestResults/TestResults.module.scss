@@ -1,4 +1,4 @@
-.TestResults{
+.TestResults {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -6,32 +6,38 @@
     padding: 20px;
     background: #FFD8E9;
     border-radius: 12px;
-    .resultsTitle{
+
+    .resultsTitle {
         color: #7A5267;
         font-weight: 500;
         font-size: 22px;
     }
-    .resultsInfo{
+
+    .resultsInfo {
         display: flex;
         flex-direction: column;
         gap: 10px;
         font-weight: 500;
         font-size: 18px;
         color: #1C1B1F;
+
         span {
             font-size: 16px;
             color: #47464F;
         }
     }
-    .resultsMore{
+
+    .resultsMore {
         display: flex;
         justify-content: space-between;
-        align-items: start;
-        .button{
+        align-items: flex-start;
+
+        .button {
             color: #7A5267;
             font-weight: 500;
             font-size: 14px;
-            .text{
+
+            .text {
                 margin-right: 5px;
             }
         }
