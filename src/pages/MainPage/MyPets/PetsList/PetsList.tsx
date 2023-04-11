@@ -1,65 +1,19 @@
-import Pet from './Pet/Pet';
+import Pet from './Pet';
+import petsApi from '../../../../services/PetsService';
 import classes from './PetsList.module.scss';
+import { IPet } from '../../../../models/IPet';
 
-type PetItem = {
-    id: number;
-    name: string;
-    breed: string
-}
-
-const pets: PetItem[] = [
-  {
-    name: 'Кеша',
-    breed: 'Ориентальная кошка, dsdsdsdssnsdfjbs dkfhadfbasdfbdabfkafbdfnab ',
-    id: 1,
-  },
-  {
-    name: 'Кеша',
-    breed: 'Ориентальная кошка',
-    id: 2,
-  },
-  {
-    name: 'Кеша',
-    breed: 'Ориентальная кошка',
-    id: 3,
-  },
-  {
-    name: 'Кеша',
-    breed: 'Ориентальная кошка',
-    id: 4,
-  },
-  {
-    name: 'Кеша',
-    breed: 'Ориентальная кошка',
-    id: 5,
-  },
-  {
-    name: 'Кеша',
-    breed: 'Ориентальная кошка',
-    id: 6,
-  },
-  {
-    name: 'Кеша',
-    breed: 'Ориентальная кошка',
-    id: 7,
-  },
-  {
-    name: 'Кеша',
-    breed: 'Ориентальная кошка',
-    id: 8,
-  },
-];
-
-const PetsList = () => (
-  <div className={classes.pets}>
-    {pets.map((pet) => (
-      <Pet
-        name={pet.name}
-        breed={pet.breed}
-        key={pet.id + pet.name}
-      />
-    ))}
-  </div>
-);
+const PetsList = () => {
+  const { data: pets, isLoading, isError } = petsApi.useFetchAllPetsQuery(100);
+  return (
+    <div className={classes.pets}>
+      {isLoading && <p>загрузка...</p>}
+      {isError && <p>Произошла ошибка</p>}
+      {pets && pets.map((pet: IPet) => (
+        <Pet name={pet.name} breed={pet.kind.kind_name} key={pet.pet_id} />
+      ))}
+    </div>
+  );
+};
 
 export default PetsList;
