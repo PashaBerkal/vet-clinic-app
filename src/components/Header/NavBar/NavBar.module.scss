@@ -53,3 +53,9 @@ $MuiIndicator: 'span[class*="MuiTabs-indicator"]';
         }
     }
 }
+
+@media (max-height: 940px) {
+    .NavBar{
+        margin-top: 8px;
+    }
+}

@@ -55,3 +55,16 @@
         }
     }
 }
+
+@media (max-height: 850px) {
+    .LastVisits{
+        .visitsTop{
+            .visitsTitle{
+                font-size: 20px;
+            }
+            .visitsAll{
+                font-size: 15px;
+            }
+        }
+    }
+}

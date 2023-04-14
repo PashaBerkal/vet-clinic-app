@@ -80,3 +80,36 @@
         }
     }
 }
+
+@media (max-height: 850px) {
+    .pet{
+        margin-bottom: 10px;
+        min-height: 55px;
+        .petLogo{
+            width: 35px;
+            height: 35px;
+        }
+        .petInfo{
+            .name{
+                font-size: 16px;
+            }
+            .breed{
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-height: 750px) {
+    .pet{
+        min-height: 60px;
+        .petInfo{
+            .name{
+                font-size: 14px;
+            }
+            .breed{
+                font-size: 12px;
+            }
+        }
+    }
+}

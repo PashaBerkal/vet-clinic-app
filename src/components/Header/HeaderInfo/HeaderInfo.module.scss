@@ -9,3 +9,9 @@
         align-items: center;
     }
 }
+
+@media (max-height: 940px) {
+    .HeaderInfo {
+        font-size: 10px;
+    }
+}

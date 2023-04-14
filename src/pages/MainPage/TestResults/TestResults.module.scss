@@ -98,3 +98,44 @@
         }
     }
 }
+
+@media (max-height: 850px) {
+    .TestResults {
+        padding: 10px;
+        .resultsTitle {
+            font-size: 18px;
+        }
+    
+        .resultsInfo {
+            font-size: 16px;
+            span {
+                font-size: 15px;
+            }
+        }
+        .resultsMore {
+            .button {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-height: 750px) {
+    .TestResults {
+        .resultsTitle {
+            font-size: 16px;
+        }
+    
+        .resultsInfo {
+            font-size: 14px;
+            span {
+                font-size: 13px;
+            }
+        }
+        .resultsMore {
+            .button {
+                font-size: 10px;
+            }
+        }
+    }
+}

@@ -51,3 +51,19 @@
         }
     }
 }
+
+@media (max-height: 940px) {
+    .Contacts {
+        .logo {
+            .logoText {
+                font-size: 12px;
+            }
+        }
+        .phoneText {
+            font-size: 10px;
+        }
+        .phone {
+            font-size: 14px;
+        }
+    }
+}
