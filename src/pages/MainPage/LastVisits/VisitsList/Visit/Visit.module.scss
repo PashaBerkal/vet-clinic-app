@@ -147,3 +147,58 @@
         }
     }
 }
+
+@media (max-height: 850px) {
+    .Visit {
+        min-height: 60px;
+        margin-bottom: 8px;
+        .leftPositionInfo {
+            .logo {
+                width: 35px;
+                height: 35px;
+            }
+            .text {
+                .name {
+                    font-size: 16px;
+                }
+                .date {
+                    font-size: 14px;
+                }
+            }
+        }
+        .rightPositionInfo {
+            .text {
+                .result {
+                    font-size: 16px;
+                }
+                .procedure {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+@media (max-height: 750px) {
+    .Visit {
+        .leftPositionInfo {
+            .text {
+                .name {
+                    font-size: 14px;
+                }
+                .date {
+                    font-size: 12px;
+                }
+            }
+        }
+        .rightPositionInfo {
+            .text {
+                .result {
+                    font-size: 14px;
+                }
+                .procedure {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

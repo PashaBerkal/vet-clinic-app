@@ -10,3 +10,17 @@
         margin-top: 31px;
     }
 }
+
+@media (max-height: 850px) {
+    .pets{
+        margin-top: 17px;
+        height: 315px;
+    }
+}
+
+@media (max-height: 750px) {
+    .pets{
+        margin-top: 7px;
+        height: 268px;
+    }
+}

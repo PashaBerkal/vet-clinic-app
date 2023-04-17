@@ -32,3 +32,24 @@
   }
 }
 
+@media (max-height: 850px) {
+  .MainPage{
+    .gridContainer {
+      height: 450px;
+      grid-template: 40% 54% / 29% 68% ;
+      gap: 3%;
+    }
+  }
+}
+
+@media (max-height: 750px) {
+  .MainPage{
+    padding: 0;
+    .gridContainer {
+      height: 395px;
+      grid-template: 37% 58% / 29% 68% ;
+    }
+  }
+}
+
+

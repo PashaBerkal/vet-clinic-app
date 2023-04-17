@@ -69,3 +69,35 @@
         }
     }
 }
+
+@media (max-height: 940px) {
+    .Footer {
+        padding: 15px 0 0;
+        min-height: 105px;
+        .wrapper {
+            .logo {
+                .logoText {
+                    font-size: 12px;
+                }
+            }
+            .title {
+                font-size: 14px;
+            }
+            .text {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-height: 850px) {
+    .Footer {
+        min-height: 140px;
+    }
+}
+
+@media (max-height: 800px) {
+    .Footer {
+        min-height: 105px;
+    }
+}
