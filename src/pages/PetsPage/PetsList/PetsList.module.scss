@@ -1,0 +1,24 @@
+.PetsList{
+    overflow: auto;
+    width: 100%;
+    height: 410px;
+    margin-top: 25px;
+}
+
+@media (max-height: 850px) {
+    .PetsList {
+      height: 340px;
+    }
+}
+
+@media (max-height: 800px) {
+    .PetsList {
+        height: 280px;
+      }
+}
+
+@media (max-height: 750px) {
+    .PetsList {
+      height: 210px;
+    }
+  }

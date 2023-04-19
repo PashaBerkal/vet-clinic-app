@@ -18,8 +18,8 @@ const NavBar = () => {
       <div className={classes.pages}>
         <Tabs value={value} onChange={handleChange}>
           <Tab label="Главная" value="/" />
-          <Tab label="Медкарта" value="/MedicalCardPage" />
           <Tab label="Питомцы" value="/PetsPage" />
+          <Tab label="Медкарта" value="/MedicalCardPage" />
           <Tab label="Записи" value="/RecordsPage" />
         </Tabs>
       </div>
