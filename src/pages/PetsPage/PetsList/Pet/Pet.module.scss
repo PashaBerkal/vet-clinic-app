@@ -1,0 +1,176 @@
+.Pet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px 0 16px;
+    min-height: 74px;
+    background: #FFFBFF;
+    border-radius: 12px;
+    margin-bottom: 10px;
+
+    .leftPositionInfo {
+        display: flex;
+        width: 50%;
+        align-items: center;
+        gap: 70px;
+
+        .logo {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .img {
+                display: flex;
+                flex-shrink: 0;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                background: #ffd8e9;
+                border-radius: 100px;
+            }
+        }
+
+        .text {
+            .name {
+                font-weight: 500;
+                font-size: 18px;
+                color: #1C1B1F;
+            }
+
+            .age {
+                font-weight: 400;
+                font-size: 16px;
+                color: #47464F;
+            }
+
+            .animal {
+                font-weight: 500;
+                font-size: 18px;
+                color: #1C1B1F;
+            }
+
+            .breed {
+                font-weight: 400;
+                font-size: 16px;
+                color: #47464F;
+            }
+        }
+    }
+
+    .rightPositionInfo {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 50%;
+        gap: 10px;
+
+        .ArrowText {
+            color: #00639B;
+            font-weight: 500;
+            font-size: 14px;
+        }
+    }
+
+    &:hover {
+        background: #e8e4f3;
+        transition: all 0.5s;
+    }
+}
+
+@media (max-width: 1400px) {
+    .Pet {
+        .leftPositionInfo {
+            .text {
+                .name {
+                    font-size: 16px;
+                }
+
+                .age {
+                    font-size: 14px;
+                }
+
+                .animal {
+                    font-size: 14px;
+                }
+
+                .breed {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .rightPositionInfo {
+            .ArrowText {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .Pet {
+        .leftPositionInfo {
+            .text {
+                .name {
+                    font-size: 14px;
+                }
+
+                .age {
+                    font-size: 12px;
+                }
+
+                .animal {
+                    font-size: 12px;
+                }
+
+                .breed {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .rightPositionInfo {
+            .ArrowText {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+@media (max-height: 850px) {
+    .Pet {
+        min-height: 60px;
+        .leftPositionInfo {
+            .logo {
+                .img {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+            .text {
+                .name {
+                    font-size: 16px;
+                }
+
+                .age {
+                    font-size: 14px;
+                }
+
+                .animal {
+                    font-size: 14px;
+                }
+
+                .breed {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .rightPositionInfo {
+            .ArrowText {
+                font-size: 12px;
+            }
+        }
+    }
+}

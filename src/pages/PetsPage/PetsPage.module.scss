@@ -1,4 +1,21 @@
 .PetsPage {
-  text-align: center;
-  font-size: 30px;
+  background: #f4eff4;
+  height: 590px;
+}
+
+@media (max-height: 850px) {
+  .PetsPage {
+    height: 505px;
+  }
+}
+
+@media (max-height: 800px) {
+  .PetsPage {
+    height: 470px;
+  }
+}
+@media (max-height: 750px) {
+  .PetsPage {
+    height: 380px;
+  }
 }
