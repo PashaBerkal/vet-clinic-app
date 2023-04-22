@@ -1,4 +1,27 @@
 .MedicalCardPage {
-    text-align: center;
-    font-size: 30px;
+    background: #f4eff4;
+    height: 580px;
+
+    .buttonMain {
+        margin-top: 20px;
+        width: 50%;
+    }
+}
+
+@media (max-height: 850px) {
+    .MedicalCardPage {
+        height: 505px;
+    }
+}
+
+@media (max-height: 800px) {
+    .MedicalCardPage {
+        height: 470px;
+    }
+}
+
+@media (max-height: 750px) {
+    .MedicalCardPage {
+        height: 380px;
+    }
 }
