@@ -9,7 +9,7 @@ const options = [
   'Отменить запись',
 ];
 
-const ITEM_HEIGHT = 2;
+const ITEM_HEIGHT = 20;
 
 const MenuButton = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
