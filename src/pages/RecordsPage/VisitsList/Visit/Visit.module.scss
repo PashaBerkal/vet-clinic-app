@@ -1,4 +1,4 @@
-.Pet {
+.Visit {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,19 +38,19 @@
                 color: #1C1B1F;
             }
 
-            .age {
+            .date {
                 font-weight: 400;
                 font-size: 16px;
                 color: #47464F;
             }
 
-            .animal {
+            .procedure {
                 font-weight: 500;
                 font-size: 18px;
                 color: #1C1B1F;
             }
 
-            .breed {
+            .doctor {
                 font-weight: 400;
                 font-size: 16px;
                 color: #47464F;
@@ -60,15 +60,19 @@
 
     .rightPositionInfo {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         width: 50%;
-        gap: 10px;
 
-        .ArrowText {
-            color: #00639B;
+        .state {
+            color: #1C1B1F;
             font-weight: 500;
             font-size: 14px;
+            .alert {
+                font-size: 13px;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
         }
     }
 
@@ -79,71 +83,106 @@
 }
 
 @media (max-width: 1400px) {
-    .Pet {
+    .Visit {
+        min-height: 72px;
         .leftPositionInfo {
             .text {
                 .name {
                     font-size: 16px;
                 }
 
-                .age {
+                .date {
                     font-size: 14px;
                 }
 
-                .animal {
-                    font-size: 14px;
+                .procedure {
+                    font-size: 16px;
                 }
 
-                .breed {
+                .doctor {
                     font-size: 14px;
                 }
             }
         }
-
         .rightPositionInfo {
-            .ArrowText {
-                font-size: 12px;
+            .state {
+                .alert{
+                    font-size: 12px;
+                }
             }
         }
     }
 }
 
 @media (max-width: 1200px) {
-    .Pet {
+    .Visit {
         .leftPositionInfo {
             .text {
                 .name {
                     font-size: 14px;
                 }
 
-                .age {
+                .date {
                     font-size: 12px;
                 }
 
-                .animal {
-                    font-size: 12px;
+                .procedure {
+                    font-size: 14px;
                 }
 
-                .breed {
+                .doctor {
                     font-size: 12px;
                 }
             }
         }
-
         .rightPositionInfo {
-            .ArrowText {
-                font-size: 10px;
+            .state {
+                .alert{
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .Visit {
+        .leftPositionInfo {
+            .text {
+                .name {
+                    font-size: 13px;
+                }
+
+                .date {
+                    font-size: 10px;
+                }
+
+                .procedure {
+                    font-size: 13px;
+                }
+
+                .doctor {
+                    font-size: 10px;
+                }
+            }
+        }
+        .rightPositionInfo {
+            .state {
+                margin-left: 20px;
+                .alert{
+                    font-size: 12px;
+                }
             }
         }
     }
 }
 
 @media (max-height: 850px) {
-    .Pet {
+    .Visit {
         min-height: 60px;
         .leftPositionInfo {
-            .logo {
-                .img {
+            .logo{
+                .img{
                     width: 35px;
                     height: 35px;
                 }
@@ -153,23 +192,55 @@
                     font-size: 16px;
                 }
 
-                .age {
+                .date {
                     font-size: 14px;
                 }
 
-                .animal {
-                    font-size: 14px;
+                .procedure {
+                    font-size: 16px;
                 }
 
-                .breed {
+                .doctor {
                     font-size: 14px;
                 }
             }
         }
-
         .rightPositionInfo {
-            .ArrowText {
-                font-size: 12px;
+            .state {
+                .alert{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-height: 750px) {
+    .Visit {
+        .leftPositionInfo {
+            .text {
+                .name {
+                    font-size: 14px;
+                }
+
+                .date {
+                    font-size: 12px;
+                }
+
+                .procedure {
+                    font-size: 14px;
+                }
+
+                .doctor {
+                    font-size: 12px;
+                }
+            }
+        }
+        .rightPositionInfo {
+            .state {
+                .alert{
+                    font-size: 13px;
+                }
             }
         }
     }

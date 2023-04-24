@@ -1,4 +1,27 @@
 .RecordsPage {
-  text-align: center;
-  font-size: 30px;
+  height: 575px;
+}
+
+@media (max-height: 940px) {
+  .RecordsPage {
+    height: 500px ;
+  }
+}
+
+@media (max-height: 850px) {
+  .RecordsPage {
+    height: 480px ;
+  }
+}
+
+@media (max-height: 800px) {
+  .RecordsPage {
+    height: 420px ;
+  }
+}
+
+@media (max-height: 700px) {
+  .RecordsPage {
+    height: 350px ;
+  }
 }
