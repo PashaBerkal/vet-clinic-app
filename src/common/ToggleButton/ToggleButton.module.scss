@@ -1,0 +1,56 @@
+$MuiButtonActive: 'button[aria-pressed="true"]:hover';
+$MuiIndicator: 'button[class*="Mui-selected"]';
+
+.button {
+    .text {
+        font-weight: 600;
+        font-size: 12px;
+        color: #001D33;
+    }
+
+    #{$MuiIndicator} {
+        background-color: #CEE5FF;
+    }
+
+    #{$MuiButtonActive} {
+        background-color: #CEE5FF;
+    }
+
+    :last-child {
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+    }
+
+    :first-child {
+        border-top-left-radius: 100px;
+        border-bottom-left-radius: 100px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .button {
+        .text {
+            font-weight: 600;
+            font-size: 8px;
+            color: #001D33;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .button {
+        .text {
+            font-weight: 500;
+            font-size: 7px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .button {
+        .text {
+            font-weight: 600;
+            font-size: 7px;
+        }
+    }
+}

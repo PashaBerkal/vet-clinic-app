@@ -8,3 +8,9 @@
     border-radius: 12px;
     align-items: center;
 }
+
+@media (max-height: 700px) {
+    .FilterControls {
+        margin-top: 5px;
+    }
+}
