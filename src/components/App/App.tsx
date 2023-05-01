@@ -4,6 +4,7 @@ import MainPage from '../../pages/MainPage';
 import MedicalCardPage from '../../pages/MedicalCardPage';
 import PetsPage from '../../pages/PetsPage';
 import RecordsPage from '../../pages/RecordsPage';
+import AuthPage from '../../pages/AuthPage/AuthPage';
 
 const App = () => {
   const routes: JSX.Element = (
@@ -12,6 +13,8 @@ const App = () => {
       <Route path="/MedicalCardPage" element={<MedicalCardPage />} />
       <Route path="/PetsPage" element={<PetsPage />} />
       <Route path="/RecordsPage" element={<RecordsPage />} />
+      <Route path="/Auth" element={<AuthPage />} />
+
     </Routes>
   );
   return (
