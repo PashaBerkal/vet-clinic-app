@@ -17,7 +17,7 @@ import storageUtil from '../../utils/storageUtil';
 
 const AuthPage = () => {
 //   const { isAuth } = useAppSelector((state) => state.authSlice);
-  const { setAuth } = authSlice.actions;
+  const { setCredentials } = authSlice.actions;
   const dispatch = useAppDispatch();
   const [auth] = authApi.useAuthMutation();
   const [values, setValues] = useState<AuthRequestParams>({
@@ -45,11 +45,7 @@ const AuthPage = () => {
   const authHandler = async () => {
     const result = await auth(values);
     if ('data' in result) {
-      storageUtil.setTokens({
-        acces_token: result.data.access_token,
-        refresh_token: result.data.refresh_token,
-      });
-      dispatch(setAuth(true));
+      dispatch(setCredentials(result));
     }
   };
 

@@ -17,6 +17,14 @@ export const authSlice = createSlice({
     setAuth(state, action) {
       state.isAuth = action.payload;
     },
+    setCredentials: (state, action) => {
+      const { data } = action.payload;
+      storageUtil.setTokens({
+        acces_token: data.access_token,
+        refresh_token: data.refresh_token,
+      });
+      state.isAuth = true;
+    },
     logOut: (state) => {
       storageUtil.clearTokens();
       state.isAuth = false;
