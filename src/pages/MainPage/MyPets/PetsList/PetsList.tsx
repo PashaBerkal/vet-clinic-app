@@ -2,9 +2,11 @@ import Pet from './Pet';
 import petsApi from '../../../../services/PetsService';
 import classes from './PetsList.module.scss';
 import { IPet } from '../../../../models/IPet';
+import { petsApiSlice } from '../../../../redux/pets/petsApiSlice';
+// import { useFetchAllPetsQuery } from '../../../../redux/pets/petsApiSlice';
 
 const PetsList = () => {
-  const { data: pets, isLoading, isError } = petsApi.useFetchAllPetsQuery(100);
+  const { data: pets, isLoading, isError } = petsApiSlice.useFetchAllPetsQuery(100);
   return (
     <div className={classes.pets}>
       {isLoading && <p>загрузка...</p>}

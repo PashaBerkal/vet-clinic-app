@@ -14,12 +14,15 @@ import authApi from '../../services/AuthService';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { authSlice } from '../../services/reducers/AuthSlice';
 import storageUtil from '../../utils/storageUtil';
+import { authApiSlice } from '../../redux/auth/authApiSlice';
+// import { useLoginMutation } from '../../redux/auth/authApiSlice';
 
 const AuthPage = () => {
 //   const { isAuth } = useAppSelector((state) => state.authSlice);
   const { setCredentials } = authSlice.actions;
   const dispatch = useAppDispatch();
-  const [auth] = authApi.useAuthMutation();
+  // const [auth] = authApi.useAuthMutation();
+  const [login] = authApiSlice.useLoginMutation();
   const [values, setValues] = useState<AuthRequestParams>({
     email: '',
     password: '',
@@ -43,7 +46,8 @@ const AuthPage = () => {
   };
 
   const authHandler = async () => {
-    const result = await auth(values);
+    // const result = await login(values).unwrap();
+    const result = await login(values);
     if ('data' in result) {
       dispatch(setCredentials(result));
     }
