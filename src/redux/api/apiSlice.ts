@@ -5,17 +5,11 @@ import { logOut } from '../auth/authSlice';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: 'http://45.141.79.132:8090/',
-  //   credentials: 'include',
-  //   mode: 'no-cors',
   prepareHeaders: (headers) => {
     const token = storageUtil.getAccessToken();
     if (token) {
       console.log(true, true);
       headers.set('Authorization', `Bearer ${token}`);
-    //   headers.set('Content-Type', 'application/json');
-    //   headers.set('Accept', '*/*');
-    //   headers.set('Connection', 'keep-alive');
-    //   headers.set('Host', '45.141.79.132:8090');
     }
     return headers;
   },
@@ -27,7 +21,7 @@ const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
 
   if (result?.error?.status === 403) {
     console.log('sending refresh token');
-    // send refresh token to get new access token
+
     const refreshResult = await baseQuery('/refresh', api, extraOptions);
     console.log({ refreshResult });
     if (refreshResult?.data) {
