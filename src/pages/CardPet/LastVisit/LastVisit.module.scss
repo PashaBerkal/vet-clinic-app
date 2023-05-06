@@ -1,0 +1,38 @@
+.LastVisit {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    padding: 20px;
+    background: #FFD8E9;
+    border-radius: 12px;
+
+    .title {
+        color: #7A5267;
+        font-weight: 500;
+        font-size: 22px;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-weight: 500;
+        font-size: 18px;
+        color: #1C1B1F;
+
+        span {
+            font-size: 16px;
+            color: #47464F;
+        }
+    }
+    .button {
+        border: 1px solid #817f88;
+        color: #00639B;
+        display: block;
+        width: 100%;
+        font-weight: 500;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+}

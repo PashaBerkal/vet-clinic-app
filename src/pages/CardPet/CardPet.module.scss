@@ -1,0 +1,15 @@
+.CardPet {
+    background: #f4eff4;
+    padding: 20px 0;
+    margin: 0 auto;
+    height: 600px;
+    display: grid;
+    grid-template: 42% 55% / 29% 68%;
+    gap: 3%;
+
+    .infoSection {
+        display: grid;
+        grid-template-columns: 59% 38%;
+        gap: 3%;
+    }
+}

@@ -1,0 +1,17 @@
+$MuiIndicator: 'div[class*="MuiPaper-root-MuiAccordion-root"]';
+
+.Accordion {
+    margin-top: 4px;
+
+    .title {
+        color: #1C1B1F;
+        font-weight: 500;
+        font-size: 18px;
+    }
+    #{$MuiIndicator}:first-of-type {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-radius: 100px;
+        box-shadow: none;
+    }
+}

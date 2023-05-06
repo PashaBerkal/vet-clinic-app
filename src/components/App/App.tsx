@@ -4,6 +4,7 @@ import MainPage from '../../pages/MainPage';
 import MedicalCardPage from '../../pages/MedicalCardPage';
 import PetsPage from '../../pages/PetsPage';
 import RecordsPage from '../../pages/RecordsPage';
+import CardPet from '../../pages/CardPet/CardPet';
 
 const App = () => {
   const routes: JSX.Element = (
@@ -11,6 +12,7 @@ const App = () => {
       <Route path="/" element={<MainPage />} />
       <Route path="/MedicalCardPage" element={<MedicalCardPage />} />
       <Route path="/PetsPage" element={<PetsPage />} />
+      <Route path="/PetsPage/:id" element={<CardPet />} />
       <Route path="/RecordsPage" element={<RecordsPage />} />
     </Routes>
   );
