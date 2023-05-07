@@ -1,12 +1,16 @@
+import { useEffect } from 'react';
 import Pet from './Pet';
-import petsApi from '../../../../services/PetsService';
-import classes from './PetsList.module.scss';
 import { IPet } from '../../../../models/IPet';
-import { petsApiSlice } from '../../../../redux/pets/petsApiSlice';
-// import { useFetchAllPetsQuery } from '../../../../redux/pets/petsApiSlice';
+import { useFetchAllPetsQuery } from '../../../../redux/pets/petsApiSlice';
+import classes from './PetsList.module.scss';
 
 const PetsList = () => {
-  const { data: pets, isLoading, isError } = petsApiSlice.useFetchAllPetsQuery(100);
+  const { data: pets, isLoading, isError, refetch } = useFetchAllPetsQuery(100);
+
+  useEffect(() => {
+    refetch();
+  }, []);
+
   return (
     <div className={classes.pets}>
       {isLoading && <p>загрузка...</p>}

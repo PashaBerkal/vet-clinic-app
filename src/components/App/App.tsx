@@ -5,23 +5,21 @@ import MedicalCardPage from '../../pages/MedicalCardPage';
 import PetsPage from '../../pages/PetsPage';
 import RecordsPage from '../../pages/RecordsPage';
 import AuthPage from '../../pages/AuthPage/AuthPage';
+import PrivateWrapper from '../../common/PrivateWrapper';
 
 const App = () => {
   const routes: JSX.Element = (
     <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/MedicalCardPage" element={<MedicalCardPage />} />
-      <Route path="/PetsPage" element={<PetsPage />} />
-      <Route path="/RecordsPage" element={<RecordsPage />} />
+      <Route element={<PrivateWrapper />}>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/MedicalCardPage" element={<MedicalCardPage />} />
+        <Route path="/PetsPage" element={<PetsPage />} />
+        <Route path="/RecordsPage" element={<RecordsPage />} />
+      </Route>
       <Route path="/Auth" element={<AuthPage />} />
-
     </Routes>
   );
-  return (
-    <Layout>
-      {routes}
-    </Layout>
-  );
+  return <Layout>{routes}</Layout>;
 };
 
 export default App;

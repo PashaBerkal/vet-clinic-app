@@ -8,21 +8,17 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 import Container from '../../hoc/Container/Container';
-import { AuthRequestParams, AuthResponseParams } from '../../models/IAuth';
-import authApi from '../../services/AuthService';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { authSlice } from '../../services/reducers/AuthSlice';
-import storageUtil from '../../utils/storageUtil';
-import { authApiSlice } from '../../redux/auth/authApiSlice';
-// import { useLoginMutation } from '../../redux/auth/authApiSlice';
+import { AuthRequestParams } from '../../models/IAuth';
+import { useAppDispatch } from '../../hooks/redux';
+import { useLoginMutation } from '../../redux/auth/authApiSlice';
+import { setCredentials } from '../../redux/auth/authSlice';
 
 const AuthPage = () => {
-//   const { isAuth } = useAppSelector((state) => state.authSlice);
-  const { setCredentials } = authSlice.actions;
   const dispatch = useAppDispatch();
-  // const [auth] = authApi.useAuthMutation();
-  const [login] = authApiSlice.useLoginMutation();
+  const navigate = useNavigate();
+  const [createSession] = useLoginMutation();
   const [values, setValues] = useState<AuthRequestParams>({
     email: '',
     password: '',
@@ -46,10 +42,10 @@ const AuthPage = () => {
   };
 
   const authHandler = async () => {
-    // const result = await login(values).unwrap();
-    const result = await login(values);
+    const result = await createSession(values);
     if ('data' in result) {
       dispatch(setCredentials(result));
+      navigate('/');
     }
   };
 

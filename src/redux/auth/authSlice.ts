@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import storageUtil from '../../utils/storageUtil';
 
-type AuthState = {
+export type AuthState = {
   isAuth: boolean;
 };
 
@@ -14,8 +14,8 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setAuth(state, action) {
-      state.isAuth = action.payload;
+    updateIsAuth(state) {
+      state.isAuth = !!storageUtil.getAccessToken();
     },
     setCredentials: (state, action) => {
       const { data } = action.payload;
@@ -23,7 +23,7 @@ export const authSlice = createSlice({
         acces_token: data.access_token,
         refresh_token: data.refresh_token,
       });
-      state.isAuth = true;
+      state.isAuth = !!storageUtil.getAccessToken();
     },
     logOut: (state) => {
       storageUtil.clearTokens();
@@ -32,6 +32,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setCredentials, logOut } = authSlice.actions;
+export const { setCredentials, logOut, updateIsAuth } = authSlice.actions;
 
 export default authSlice.reducer;
