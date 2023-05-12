@@ -30,3 +30,69 @@
         }
     }
 }
+@media (max-width: 1400px) {
+    .Pet {
+        .main {
+            .name {
+                font-size: 16px;
+            }
+            .breed {
+                font-size: 14px;
+            }
+        }
+    }
+}
+@media (max-width: 1200px) {
+    .Pet {
+        .main {
+            .name {
+                font-size: 14px;
+            }
+            .breed {
+                font-size: 12px;
+            }
+        }
+    }
+}
+@media (max-width: 992px) {
+    .Pet {
+        .main {
+            .name {
+                font-size: 12px;
+            }
+            .breed {
+                font-size: 10px;
+            }
+        }
+    }
+}
+@media (max-height: 960px) {
+    .Pet {
+        .main {
+            padding: 8px;
+        }
+    }
+}
+@media (max-height: 850px) {
+    .Pet {
+        .main {
+            .name {
+                font-size: 14px;
+            }
+            .breed {
+                font-size: 12px;
+            }
+        }
+    }
+}
+@media (max-height: 750px) {
+    .Pet {
+        .main {
+            padding: 2px;
+            .img {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    }
+}

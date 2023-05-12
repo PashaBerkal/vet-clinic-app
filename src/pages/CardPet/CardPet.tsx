@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Container from '../../hoc/Container/Container';
 import Pet from './Pet/Pet';
 import NearestEntry from '../MainPage/NearestEntry/NearestEntry';
 import LastVisit from './LastVisit/LastVisit';
 import Therapy from './Therapy/Therapy';
+import { ReactComponent as Arrow } from './assets/Arrow.svg';
 import classes from './CardPet.module.scss';
 
 interface Pet {
@@ -43,9 +44,12 @@ const CardPet = () => {
   const { id } = useParams();
   return (
     <Container>
-      <div className={classes.back}>
-        Назад
-      </div>
+      <Link to="/PetsPage" style={{ textDecoration: 'none' }}>
+        <div className={classes.back}>
+          <Arrow />
+          Назад
+        </div>
+      </Link>
       <div className={classes.CardPet}>
         { pets.filter((pet) => pet.id === id).map((pet, index) => (
           <Pet

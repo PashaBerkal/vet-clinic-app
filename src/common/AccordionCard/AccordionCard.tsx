@@ -24,7 +24,7 @@ const AccordionCard = () => {
         <Typography className={classes.title}>Соскоб с кожи на паразиты и дерматофиты </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography className={classes.subtitle}>
           Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
           amet egestas eros, vitae egestas augue. Duis vel est augue.
         </Typography>

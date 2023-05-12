@@ -36,3 +36,75 @@
         border-radius: 12px;
     }
 }
+@media (max-width: 1400px) {
+    .LastVisit {
+        .title {
+            font-size: 20px;
+        }
+    
+        .text {
+            font-size: 16px;
+    
+            span {
+                font-size: 14px;
+            }
+        }
+        .button {
+            font-size: 14px;
+        }
+    }
+}
+@media (max-width: 1200px) {
+    .LastVisit {
+        .title {
+            font-size: 18px;
+        }
+    
+        .text {
+            font-size: 14px;
+    
+            span {
+                font-size: 12px;
+            }
+        }
+        .button {
+            font-size: 12px;
+        }
+    }
+}
+@media (max-width: 992px) {
+    .LastVisit {
+        .title {
+            font-size: 16px;
+        }
+    
+        .text {
+            font-size: 12px;
+    
+            span {
+                font-size: 10px;
+            }
+        }
+        .button {
+            font-size: 10px;
+        }
+    }
+}
+@media (max-height: 850px) {
+    .LastVisit {
+        .title {
+            font-size: 18px;
+        }
+    
+        .text {
+            font-size: 14px;
+    
+            span {
+                font-size: 12px;
+            }
+        }
+        .button {
+            font-size: 12px;
+        }
+    }
+}

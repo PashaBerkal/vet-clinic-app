@@ -13,3 +13,64 @@
         gap: 3%;
     }
 }
+.back {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #5954A8;
+    font-weight: 500;
+    font-size: 15px;
+    cursor: pointer;
+    width: 60px;
+}
+
+@media (max-width: 1400px) {
+    .back {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .back {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 992px) {
+    .CardPet {
+        grid-template: 32% 65% / 29% 68%;
+    }
+    .back {
+        font-size: 10px;
+    }
+}
+@media (max-height: 960px) {
+    .CardPet {
+        height: 570px;
+    }
+}
+@media (max-height: 850px) {
+    .CardPet {
+        height: 490px;
+    }
+    .back {
+        font-size: 12px;
+    }
+}
+
+@media (max-height: 800px) {
+    .CardPet {
+        height: 475px;
+    }
+}
+@media (max-height: 800px) {
+    .CardPet {
+        height: 475px;
+    }
+}
+@media (max-height: 750px) {
+    .CardPet {
+        padding: 7px 0;
+        height: 380px;
+    }
+}
