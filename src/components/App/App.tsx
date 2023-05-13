@@ -6,6 +6,7 @@ import PetsPage from '../../pages/PetsPage';
 import RecordsPage from '../../pages/RecordsPage';
 import AuthPage from '../../pages/AuthPage/AuthPage';
 import PrivateWrapper from '../../common/PrivateWrapper';
+import CardPet from '../../pages/CardPet/CardPet';
 
 const App = () => {
   const routes: JSX.Element = (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/" element={<MainPage />} />
         <Route path="/MedicalCardPage" element={<MedicalCardPage />} />
         <Route path="/PetsPage" element={<PetsPage />} />
+        <Route path="/PetsPage/:id" element={<CardPet />} />
         <Route path="/RecordsPage" element={<RecordsPage />} />
       </Route>
       <Route path="/Auth" element={<AuthPage />} />

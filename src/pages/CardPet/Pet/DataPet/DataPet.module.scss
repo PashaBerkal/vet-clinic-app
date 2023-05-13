@@ -1,0 +1,100 @@
+.info{
+    margin-top: 8px;
+    padding: 16px;
+    display: flex;
+    background: #ffffff;
+    gap: 12px;
+    border-radius: 12px;
+    .img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background: #CEE5FF;
+    }
+    .text {
+        .top{
+            color: #1C1B1F;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .bottom{
+            font-weight: 400;
+            font-size: 16px;
+            color: #47464F;
+        }
+    }
+}
+@media (max-width: 1400px) {
+    .info{
+        .text {
+            .top{
+                font-size: 16px;
+            }
+            .bottom{
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .info{
+        .text {
+            .top{
+                font-size: 14px;
+            }
+            .bottom{
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .info{
+        .text {
+            .top{
+                font-size: 14px;
+            }
+            .bottom{
+                font-size: 12px;
+            }
+        }
+    }
+}
+@media (max-height: 960px) {
+    .info{
+        margin-top: 5px;
+    }
+}
+@media (max-height: 850px) {
+    .info{
+        padding: 12px;
+        .text {
+            .top{
+                font-size: 14px;
+            }
+            .bottom{
+                font-size: 12px;
+            }
+        }
+    }
+}
+@media (max-height: 800px) {
+    .info{
+        padding: 10px;
+    }
+}
+@media (max-height: 750px) {
+    .info{
+        padding: 10px;
+        height: 50px;
+        .img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
