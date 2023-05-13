@@ -81,7 +81,9 @@ const VisitsList = () => {
   }, []);
   return (
     <div className={classes.VisitsList}>
-      {records?.map((record, index) => (
+      {isLoading && <p>загрузка...</p>}
+      {isError && <p>Произошла ошибка</p>}
+      {records && records?.map((record, index) => (
         <Visit
           date={`${record.date[1]}.${record.date[2]}.${record.date[0]}, ${record.date[3]}:${record.date[4]}`}
           doctor={record.doctor_name}
