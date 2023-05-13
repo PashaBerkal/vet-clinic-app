@@ -98,13 +98,13 @@ const pets: PetItem[] = [
 
 const PetsList = () => (
   <div className={classes.PetsList}>
-    {pets.map((pet) => (
+    {pets.map((pet, index) => (
       <Pet
         name={pet.name}
         date={pet.date}
         procedure={pet.procedure}
         result={pet.result}
-        key={pet.id + pet.name}
+        key={index.toString() + pet.name}
       />
     ))}
   </div>
