@@ -1,0 +1,54 @@
+.Auth {
+    display: flex;
+    justify-content: space-between;
+    height: 400px;
+    .welocme {
+        .title {
+            font-weight: 500;
+            font-size: 28px;
+            color: #130463;
+        }
+        .subtitle{
+            font-weight: 400;
+            font-size: 14px;
+            color: #1C1B1F;
+            margin-top: 16px;
+        }
+        .img{
+            margin-top: 50px;
+        }
+    }
+    .card{
+        width: 410px;
+        height: 440px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        border-radius: 12px;
+        .title{
+            font-weight: 500;
+            font-size: 22px;
+            color: #1C1B1F;
+            margin-bottom: 32px;
+        }
+        .email{
+            margin-bottom: 16px;
+        }
+        .password{
+            margin-bottom: 16px;
+        }
+        .button{
+            margin-top: 24px;
+            background: #5954A8;
+            border-radius: 100px;
+        }
+        .forgot{
+            font-size: 14px;
+            font-weight: 500;
+            color: #00639B;
+            cursor: pointer;
+            margin: 35px auto 0;
+        }
+    }
+}
