@@ -6,6 +6,7 @@ import LastVisit from './LastVisit/LastVisit';
 import Therapy from './Therapy/Therapy';
 import { ReactComponent as Arrow } from './assets/Arrow.svg';
 import classes from './CardPet.module.scss';
+import { useAppSelector } from '../../hooks/redux';
 
 interface Pet {
   name: string,
@@ -17,7 +18,7 @@ interface Pet {
   breed: string,
   id: string,
 }
-const pets: Pet[] = [
+const Pets: Pet[] = [
   {
     name: 'Кеша',
     birthday: '28.07.2004',
@@ -42,6 +43,7 @@ const pets: Pet[] = [
 
 const CardPet = () => {
   const { id } = useParams();
+  const { pets } = useAppSelector((state) => state.pets);
   return (
     <Container>
       <Link to="/PetsPage" style={{ textDecoration: 'none' }}>
@@ -51,15 +53,15 @@ const CardPet = () => {
         </div>
       </Link>
       <div className={classes.CardPet}>
-        { pets.filter((pet) => pet.id === id).map((pet, index) => (
+        {pets && pets.filter((pet) => pet.pet_id.toString() === id).map((pet, index) => (
           <Pet
-            animal={pet.animal}
+            animal={pet.kind.kind_name}
             birthday={pet.birthday}
-            chip={pet.chip}
+            chip={12121}
             color={pet.color}
             name={pet.name}
-            sex={pet.sex}
-            breed={pet.breed}
+            sex={pet.sex.sex_name}
+            breed={pet.breed ? pet.breed.breed_name : 'Error'}
             key={index?.toString()}
           />
         )) }

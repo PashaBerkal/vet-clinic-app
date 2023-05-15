@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../../hooks/redux';
+import { useFetchAllPetsQuery } from '../../../redux/pets/petsApiSlice';
+import { updatePets } from '../../../redux/pets/petsSlice';
 import Pet from './Pet/Pet';
 import classes from './PetsList.module.scss';
 
-const pets = [
+const Pets = [
   {
     name: 'Барски',
     age: '5 лет',
@@ -73,18 +77,26 @@ const pets = [
     id: 10,
   },
 ];
-const PetsList = () => (
-  <div className={classes.PetsList}>
-    {pets.map((pet, index) => (
-      <Pet
-        age={pet.age}
-        animal={pet.animal}
-        breed={pet.breed}
-        name={pet.name}
-        id={pet.id}
-        key={pet.name + index.toString()}
-      />
-    ))}
-  </div>
-);
+const PetsList = () => {
+  const { data: pets, isError, isLoading, refetch } = useFetchAllPetsQuery(100);
+  const disaptch = useAppDispatch();
+  useEffect(() => {
+    refetch();
+    disaptch(updatePets(pets));
+  }, pets);
+  return (
+    <div className={classes.PetsList}>
+      {pets && pets.map((pet, index) => (
+        <Pet
+          age={Pets[0].age}
+          animal={pet.kind.kind_name ? pet.kind.kind_name : 'Error'}
+          breed={pet.breed ? pet.breed.breed_name : 'Error'}
+          name={pet.name ? pet.name : 'Error'}
+          id={pet.pet_id}
+          key={pet.name + index.toString()}
+        />
+      ))}
+    </div>
+  );
+};
 export default PetsList;

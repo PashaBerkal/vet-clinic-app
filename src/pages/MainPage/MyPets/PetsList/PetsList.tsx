@@ -3,14 +3,16 @@ import Pet from './Pet';
 import { IPet } from '../../../../models/IPet';
 import { useFetchAllPetsQuery } from '../../../../redux/pets/petsApiSlice';
 import classes from './PetsList.module.scss';
+import { useAppDispatch } from '../../../../hooks/redux';
+import { updatePets } from '../../../../redux/pets/petsSlice';
 
 const PetsList = () => {
   const { data: pets, isLoading, isError, refetch } = useFetchAllPetsQuery(100);
-
+  const disaptch = useAppDispatch();
   useEffect(() => {
     refetch();
+    disaptch(updatePets(pets));
   }, []);
-
   return (
     <div className={classes.pets}>
       {isLoading && <p>загрузка...</p>}
