@@ -1,54 +1,22 @@
+import { FC } from 'react';
 import Visit from './Visit/Visit';
+import { IVisit } from '../../../../models/IVisit';
 import classes from './VisitsList.module.scss';
 
-type VisitItem = {
-    name: string,
-    date: string,
-    procedure: string,
-    result: string,
-    id: number
+type VisitsListProps = {
+  visits?: IVisit[],
 }
 
-const lastVisits: VisitItem[] = [
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 1,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 2,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 3,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 4,
-  },
-];
-
-const VisitsList = () => (
+const VisitsList: FC<VisitsListProps> = ({ visits }) => (
   <div className={classes.VisitsList}>
-    {lastVisits.slice(0, 3).map((visit) => (
+
+    {visits && visits.map((visit) => (
       <Visit
-        name={visit.name}
+        name={visit.pet.name}
         date={visit.date}
-        procedure={visit.procedure}
-        result={visit.result}
-        key={visit.id + visit.name}
+        procedure="Нет данных"
+        result="Нет данных"
+        key={visit.date + visit.pet.name}
       />
     ))}
   </div>
