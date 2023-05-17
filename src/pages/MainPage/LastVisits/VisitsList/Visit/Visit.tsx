@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { ReactComponent as Procedure } from '../../../assets/Procedure.svg';
 import { ReactComponent as ArrowBig } from '../../../assets/ArrowBig.svg';
 import classes from './Visit.module.scss';
@@ -22,7 +23,7 @@ const Visit = ({
           {name}
         </div>
         <div className={classes.date}>
-          {date}
+          {moment(date).format('L, LT')}
         </div>
       </div>
     </div>

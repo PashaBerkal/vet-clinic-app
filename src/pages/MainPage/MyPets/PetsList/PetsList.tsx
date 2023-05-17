@@ -1,27 +1,18 @@
-import { useEffect } from 'react';
+import { FC } from 'react';
 import Pet from './Pet';
 import { IPet } from '../../../../models/IPet';
-import { useFetchAllPetsQuery } from '../../../../redux/pets/petsApiSlice';
 import classes from './PetsList.module.scss';
-import { useAppDispatch } from '../../../../hooks/redux';
-import { updatePets } from '../../../../redux/pets/petsSlice';
 
-const PetsList = () => {
-  const { data: pets, isError, isLoading, refetch } = useFetchAllPetsQuery({ name: '' });
-  const disaptch = useAppDispatch();
-  useEffect(() => {
-    refetch();
-    disaptch(updatePets(pets));
-  }, []);
-  return (
-    <div className={classes.pets}>
-      {isLoading && <p>загрузка...</p>}
-      {isError && <p>Произошла ошибка</p>}
-      {pets && pets.map((pet: IPet) => (
-        <Pet name={pet.name} breed={pet.kind.kind_name} key={pet.pet_id} />
-      ))}
-    </div>
-  );
-};
+interface PetsListProps {
+  pets?: IPet[]
+}
+
+const PetsList: FC<PetsListProps> = ({ pets }) => (
+  <div className={classes.pets}>
+    {pets && pets.map((pet: IPet) => (
+      <Pet name={pet.name} breed={pet.kind.kind_name} key={pet.pet_id} />
+    ))}
+  </div>
+);
 
 export default PetsList;

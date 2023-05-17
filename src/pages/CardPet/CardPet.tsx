@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import Container from '../../hoc/Container/Container';
 import Pet from './Pet/Pet';
-import NearestEntry from '../MainPage/NearestEntry/NearestEntry';
+import NearestEntry from '../../common/NearestEntry/NearestEntry';
 import LastVisit from './LastVisit/LastVisit';
 import Therapy from './Therapy/Therapy';
 import { ReactComponent as Arrow } from './assets/Arrow.svg';
