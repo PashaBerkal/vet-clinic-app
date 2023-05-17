@@ -2,14 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import moment from 'moment';
+import 'moment/locale/ru';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import './index.scss';
 import { setupStore } from './redux/store/store';
+import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 const store = setupStore();
+
+moment.locale('ru');
 
 root.render(
   <React.StrictMode>

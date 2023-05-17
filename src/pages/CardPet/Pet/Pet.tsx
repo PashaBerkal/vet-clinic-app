@@ -8,7 +8,7 @@ interface PetProps {
   birthday: string,
   animal: string,
   sex: string,
-  color: string,
+  color?: string,
   chip: number,
   breed: string,
 }

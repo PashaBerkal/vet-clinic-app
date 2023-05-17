@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import moment from 'moment';
 import { ReactComponent as Birthday } from '../../assets/Birthday.svg';
 import { ReactComponent as Animal } from '../../assets/Animal.svg';
 import { ReactComponent as Chip } from '../../assets/Chip.svg';
@@ -9,7 +10,7 @@ import classes from './DataPet.module.scss';
 interface DataPetProps {
   birthday: string,
   sex: string,
-  color: string,
+  color?: string,
   chip: number,
   animal: string,
 }
@@ -22,7 +23,7 @@ const DataPet: FC<DataPetProps> = ({ animal, birthday, chip, color, sex }) => (
       </div>
       <div className={classes.text}>
         <div className={classes.top}>
-          {birthday}
+          {moment(birthday).format('L')}
         </div>
         <div className={classes.bottom}>
           День рождения

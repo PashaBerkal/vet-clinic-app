@@ -13,7 +13,7 @@ interface PetProps {
 }
 
 const Pet: FC<PetProps> = ({ name, age, animal, breed, id }) => (
-  <Link to={`/PetsPage/${id.toString()}`} style={{ textDecoration: 'none' }}>
+  <Link to={`/PetsPage/${name.toString()}`} style={{ textDecoration: 'none' }}>
     <div className={classes.Pet}>
       <div className={classes.leftPositionInfo}>
         <div className={classes.logo}>

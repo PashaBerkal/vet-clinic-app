@@ -6,44 +6,12 @@ import LastVisit from './LastVisit/LastVisit';
 import Therapy from './Therapy/Therapy';
 import { ReactComponent as Arrow } from './assets/Arrow.svg';
 import classes from './CardPet.module.scss';
-import { useAppSelector } from '../../hooks/redux';
-
-interface Pet {
-  name: string,
-  birthday: string,
-  animal: string,
-  sex: string,
-  color: string,
-  chip: number,
-  breed: string,
-  id: string,
-}
-const Pets: Pet[] = [
-  {
-    name: 'Кеша',
-    birthday: '28.07.2004',
-    animal: 'Кот',
-    sex: 'Самец',
-    color: 'Чёерный',
-    chip: 12121212,
-    breed: 'Ориентальный кот',
-    id: '3',
-  },
-  {
-    name: 'Барс',
-    birthday: '28.07.2004',
-    animal: 'Кот',
-    sex: 'Самец',
-    color: 'Чёерный',
-    chip: 12121212,
-    breed: 'Ориентальный кот',
-    id: '2',
-  },
-];
+import { useFetchAllPetsQuery } from '../../redux/pets/petsApiSlice';
 
 const CardPet = () => {
-  const { id } = useParams();
-  const { pets } = useAppSelector((state) => state.pets);
+  const { name } = useParams();
+  const { data: pet, isError, isLoading, refetch } = useFetchAllPetsQuery({ name });
+  console.log(pet);
   return (
     <Container>
       <Link to="/PetsPage" style={{ textDecoration: 'none' }}>
@@ -53,18 +21,19 @@ const CardPet = () => {
         </div>
       </Link>
       <div className={classes.CardPet}>
-        {pets && pets.filter((pet) => pet.pet_id.toString() === id).map((pet, index) => (
-          <Pet
-            animal={pet.kind.kind_name}
-            birthday={pet.birthday}
-            chip={12121}
-            color={pet.color}
-            name={pet.name}
-            sex={pet.sex.sex_name}
-            breed={pet.breed ? pet.breed.breed_name : 'Error'}
-            key={index?.toString()}
-          />
-        )) }
+        {isLoading && <p>загрузка...</p>}
+        {isError && <p>Произошла ошибка</p>}
+        {pet
+          && <Pet
+            animal={pet[0].kind.kind_name}
+            birthday={pet[0].birthday}
+            chip={pet[0].pet_id}
+            color={pet[0].color?.color_name.toString() ? pet[0].color?.color_name.toString() : 'Нет данных'}
+            name={pet[0].name}
+            sex={pet[0].sex.sex_name}
+            breed={pet[0].breed.breed_name ? pet[0].breed.breed_name : 'Error'}
+            key={pet[0].pet_id?.toString()}
+          />}
         <div className={classes.infoSection}>
           <NearestEntry />
           <LastVisit />

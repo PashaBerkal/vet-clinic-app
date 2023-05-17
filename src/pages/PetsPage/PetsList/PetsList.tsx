@@ -78,7 +78,7 @@ const Pets = [
   },
 ];
 const PetsList = () => {
-  const { data: pets, isError, isLoading, refetch } = useFetchAllPetsQuery(100);
+  const { data: pets, isError, isLoading, refetch } = useFetchAllPetsQuery({ name: '' });
   const disaptch = useAppDispatch();
   useEffect(() => {
     refetch();
@@ -89,9 +89,9 @@ const PetsList = () => {
       {pets && pets.map((pet, index) => (
         <Pet
           age={Pets[0].age}
-          animal={pet.kind.kind_name ? pet.kind.kind_name : 'Error'}
-          breed={pet.breed ? pet.breed.breed_name : 'Error'}
-          name={pet.name ? pet.name : 'Error'}
+          animal={pet.kind.kind_name ? pet.kind.kind_name : 'Нет данных'}
+          breed={pet.breed ? pet.breed.breed_name : 'Нет данных'}
+          name={pet.name ? pet.name : 'Нет данных'}
           id={pet.pet_id}
           key={pet.name + index.toString()}
         />
