@@ -10,7 +10,7 @@ type VisitsListProps = {
 const VisitsList: FC<VisitsListProps> = ({ visits }) => (
   <div className={classes.VisitsList}>
 
-    {visits && visits.slice(0, 3).map((visit) => (
+    {visits && visits.map((visit) => (
       <Visit
         name={visit.pet.name}
         date={visit.date}

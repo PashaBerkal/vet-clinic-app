@@ -9,7 +9,6 @@ const TestResults = () => {
   const { data: analyzes, isLoading, isError, refetch } = useFetchAnalyzesQuery('');
 
   useEffect(() => {
-    console.log(analyzes);
     refetch();
   }, []);
   return (

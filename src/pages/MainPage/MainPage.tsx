@@ -21,7 +21,7 @@ const MainPage = () => {
           <div className={classes.infoSection}>
             {isLoading && <p>загрузка...</p>}
             {isError && <p>Произошла ошибка</p>}
-            {visit && <NearestEntry visit={visit} />}
+            {visit && <NearestEntry visitInfo={visit[0]} />}
             <TestResults />
           </div>
           <LastVisits />
