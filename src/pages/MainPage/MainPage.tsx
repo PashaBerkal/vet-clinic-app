@@ -1,23 +1,34 @@
+import { useEffect } from 'react';
 import Container from '../../hoc/Container';
 import LastVisits from './LastVisits';
 import MyPets from './MyPets';
-import NearestEntry from './NearestEntry';
+import NearestEntry from '../../common/NearestEntry';
 import TestResults from './TestResults';
+import { useFetchRecordsQuery } from '../../redux/visits/visitsApiSlice';
 import classes from './MainPage.module.scss';
 
-const MainPage = () => (
-  <div className={classes.MainPage}>
-    <Container>
-      <div className={classes.gridContainer}>
-        <MyPets />
-        <div className={classes.infoSection}>
-          <NearestEntry />
-          <TestResults />
+const MainPage = () => {
+  const { data: visit, isLoading, isError, refetch } = useFetchRecordsQuery({ maxCount: 1 });
+
+  useEffect(() => {
+    refetch();
+  }, []);
+  return (
+    <div className={classes.MainPage}>
+      <Container>
+        <div className={classes.gridContainer}>
+          <MyPets />
+          <div className={classes.infoSection}>
+            {isLoading && <p>загрузка...</p>}
+            {isError && <p>Произошла ошибка</p>}
+            {visit && <NearestEntry visit={visit} />}
+            <TestResults />
+          </div>
+          <LastVisits />
         </div>
-        <LastVisits />
-      </div>
-    </Container>
-  </div>
-);
+      </Container>
+    </div>
+  );
+};
 
 export default MainPage;

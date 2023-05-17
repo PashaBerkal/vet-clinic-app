@@ -1,25 +1,20 @@
 import { Button } from '@material-ui/core';
-import { useEffect } from 'react';
+import { FC } from 'react';
 import moment from 'moment';
-import { ReactComponent as Paws } from '../assets/paws.svg';
-import { useFetchRecordsQuery } from '../../../redux/visits/visitsApiSlice';
+import { ReactComponent as Paws } from './assets/paws.svg';
+import { IMainRecord } from '../../models/IVisit';
 import classes from './NearestEntry.module.scss';
 
-const NearestEntry = () => {
-  const { data: visit, isLoading, isError, refetch } = useFetchRecordsQuery({ maxCount: 1 });
+interface NearestEntryProps {
+  visit?: IMainRecord[]
+}
 
-  useEffect(() => {
-    refetch();
-  }, []);
-
-  return (
-    <div className={classes.NearestEntry}>
-      <div className={classes.paws}>
-        <Paws />
-      </div>
-      {isLoading && <p>загрузка...</p>}
-      {isError && <p>Произошла ошибка</p>}
-      {visit && (
+const NearestEntry: FC<NearestEntryProps> = ({ visit }) => (
+  <div className={classes.NearestEntry}>
+    <div className={classes.paws}>
+      <Paws />
+    </div>
+    {visit && (
       <div className={classes.entryContainer}>
         <div className={classes.title}>Ближайшая запись</div>
         <div className={classes.entryInfo}>
@@ -34,8 +29,7 @@ const NearestEntry = () => {
         </div>
         <Button variant="outlined" className={classes.button}>Посмотреть все</Button>
       </div>)}
-    </div>
-  );
-};
+  </div>
+);
 
 export default NearestEntry;
