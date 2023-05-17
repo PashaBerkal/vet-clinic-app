@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useFetchVisitsQuery } from '../../../../redux/visits/visitsApiSlice';
 import Visit from './Visit/Visit';
 import classes from './VisitsList.module.scss';
 
@@ -40,18 +42,25 @@ const lastVisits: VisitItem[] = [
   },
 ];
 
-const VisitsList = () => (
-  <div className={classes.VisitsList}>
-    {lastVisits.slice(0, 3).map((visit) => (
-      <Visit
-        name={visit.name}
-        date={visit.date}
-        procedure={visit.procedure}
-        result={visit.result}
-        key={visit.id + visit.name}
-      />
-    ))}
-  </div>
-);
+const VisitsList = () => {
+  const { data: visits, isLoading, isError, refetch } = useFetchVisitsQuery({ maxCount: 3 });
+
+  useEffect(() => {
+    refetch();
+  }, []);
+  return (
+    <div className={classes.VisitsList}>
+      {visits && visits.slice(0, 3).map((visit) => (
+        <Visit
+          name={visit.pet.name}
+          date={visit.date}
+          procedure="Нет данных"
+          result="Нет данных"
+          key={visit.date + visit.pet.name}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default VisitsList;
