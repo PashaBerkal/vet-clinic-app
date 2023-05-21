@@ -10,7 +10,7 @@ interface PetsListProps {
 const PetsList: FC<PetsListProps> = ({ pets }) => (
   <div className={classes.pets}>
     {pets && pets.map((pet: IPet) => (
-      <Pet name={pet.name} breed={pet.kind.kind_name} key={pet.pet_id} />
+      <Pet name={pet.name} breed={pet.kind.kind_name} key={pet.pet_id} id={pet.pet_id} />
     ))}
   </div>
 );

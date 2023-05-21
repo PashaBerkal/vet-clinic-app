@@ -17,15 +17,41 @@ interface Color {
   color_name: string;
 }
 export interface IPet {
-  pet_id: number;
-  color?: Color
+  pet_id?: string;
+  color?: Color;
   sterilized: boolean;
   sex: Sex;
   birthday: string;
   name: string;
   kind: Kind;
   breed: Breed;
+  chip_number?: string;
 }
+export interface IPetFullInfo {
+  pet_id?: string;
+  color?: Color;
+  sterilized: boolean;
+  sex: Sex;
+  birthday: string;
+  name: string;
+  kind: Kind;
+  breed: Breed;
+  chip_number?: string;
+  pet_diagnoses?: [
+    {
+      diagnosis_id: number;
+      diagnosis_name: string;
+      diagnosis_type: {
+        id: number;
+        value: string;
+      };
+    },
+  ];
+}
+
 export interface PetRequestParams {
   name?: string;
+}
+export interface PetFullInfoRequestParams {
+  petId?: string;
 }

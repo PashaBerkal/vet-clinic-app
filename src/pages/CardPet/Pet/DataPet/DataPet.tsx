@@ -11,7 +11,7 @@ interface DataPetProps {
   birthday: string,
   sex: string,
   color?: string,
-  chip: number,
+  chip?: string,
   animal: string,
 }
 
@@ -49,26 +49,28 @@ const DataPet: FC<DataPetProps> = ({ animal, birthday, chip, color, sex }) => (
       </div>
       <div className={classes.text}>
         <div className={classes.top}>
-          {sex}
+          {sex === 'female' ? 'Самка' : 'Самец'}
         </div>
         <div className={classes.bottom}>
           Пол
         </div>
       </div>
     </div>
-    <div className={classes.info}>
-      <div className={classes.img}>
-        <Color />
-      </div>
-      <div className={classes.text}>
-        <div className={classes.top}>
-          {color}
+    {color && (
+      <div className={classes.info}>
+        <div className={classes.img}>
+          <Color />
         </div>
-        <div className={classes.bottom}>
-          Цвет
+        <div className={classes.text}>
+          <div className={classes.top}>
+            {color}
+          </div>
+          <div className={classes.bottom}>
+            Цвет
+          </div>
         </div>
       </div>
-    </div>
+    )}
     <div className={classes.info}>
       <div className={classes.img}>
         <Chip />

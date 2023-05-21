@@ -1,5 +1,6 @@
 import { apiSlice } from '../api/apiSlice';
 import { AuthRequestParams, AuthResponseParams } from '../../models/IAuth';
+import { IUser } from '../../models/IUser';
 
 export const authApiSlice = apiSlice.injectEndpoints({
   overrideExisting: true,
@@ -11,7 +12,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: bodyParams,
       }),
     }),
+    fetchUser: build.query<IUser, any>({
+      query: () => ({
+        url: '/api/v2/client_info',
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation } = authApiSlice;
+export const { useLoginMutation, useFetchUserQuery } = authApiSlice;

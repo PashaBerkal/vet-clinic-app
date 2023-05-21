@@ -9,13 +9,12 @@ type VisitsListProps = {
 
 const VisitsList: FC<VisitsListProps> = ({ visits }) => (
   <div className={classes.VisitsList}>
-
     {visits && visits.map((visit) => (
       <Visit
         name={visit.pet.name}
         date={visit.date}
-        procedure="Нет данных"
-        result="Нет данных"
+        result={visit.diagnoses[0] ? visit.diagnoses[0].diagnosis_name : 'Нет диагноза'}
+        procedure={visit.type}
         key={visit.date + visit.pet.name}
       />
     ))}

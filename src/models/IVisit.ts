@@ -32,9 +32,18 @@ export interface IMainRecord {
   pet: Pet;
 }
 
+interface Diagnoses {
+  diagnosis_id: 'integer';
+  diagnosis_name: 'string';
+  diagnosis_type: {
+    id: 'integer';
+    value: 'String';
+  };
+}
+
 export interface IVisit {
   date: string;
-  diagnoses: any[];
+  diagnoses: Diagnoses[];
   pet: Pet;
   type: string;
   visit_id: number;

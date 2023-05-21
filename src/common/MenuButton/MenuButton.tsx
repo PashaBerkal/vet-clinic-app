@@ -4,21 +4,24 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const options = [
-  'Перенести запись',
-  'Отменить запись',
-];
-
+interface IOption {
+  value: string,
+  onChange: () => void;
+}
+interface PropsMenuButton {
+  options: IOption[];
+}
 const ITEM_HEIGHT = 20;
 
-const MenuButton = () => {
+const MenuButton: React.FC<PropsMenuButton> = ({ options }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (index: number) => {
     setAnchorEl(null);
+    options[index].onChange();
   };
 
   return (
@@ -48,9 +51,9 @@ const MenuButton = () => {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-            {option}
+        {options.map((option, index) => (
+          <MenuItem key={option.value} selected={option.value === 'Pyxis'} onClick={() => handleClose(index)}>
+            {option.value}
           </MenuItem>
         ))}
       </Menu>
