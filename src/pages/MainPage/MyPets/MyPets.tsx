@@ -9,7 +9,7 @@ const MyPets = () => {
   const onChangeHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value);
   };
-  const { data: pets, isLoading, isError, refetch } = useFetchAllPetsQuery(100);
+  const { data: pets, isLoading, isError, refetch } = useFetchAllPetsQuery({ name: '' });
 
   useEffect(() => {
     refetch();

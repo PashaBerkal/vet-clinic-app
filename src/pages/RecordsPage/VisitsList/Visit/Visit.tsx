@@ -25,6 +25,9 @@ const Visit: FC<VisitProps> = ({ name, date, doctor, procedure, state }) => {
         return 'Ошибка';
     }
   };
+  const onChange = () => {
+    console.log('Перенести запись');
+  };
   return (
     <div className={classes.Visit}>
       <div className={classes.leftPositionInfo}>
@@ -59,7 +62,7 @@ const Visit: FC<VisitProps> = ({ name, date, doctor, procedure, state }) => {
           </Alert>
         </div>
         <div className={classes.button}>
-          <MenuButton />
+          <MenuButton options={[{ onChange, value: 'Отменить запись' }]} />
         </div>
       </div>
     </div>

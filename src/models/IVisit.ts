@@ -31,10 +31,19 @@ export interface IMainRecord {
   description: string;
   pet: Pet;
 }
+interface DiagnosesType {
+  id: number;
+  value: string;
+}
+interface Diagnoses {
+  diagnosis_id: number;
+  diagnosis_name: string;
+  diagnosis_type: DiagnosesType;
+}
 
 export interface IVisit {
   date: string;
-  diagnoses: any[];
+  diagnoses: Diagnoses[];
   pet: Pet;
   type: string;
   visit_id: number;

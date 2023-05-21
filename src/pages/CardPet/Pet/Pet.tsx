@@ -8,8 +8,8 @@ interface PetProps {
   birthday: string,
   animal: string,
   sex: string,
-  color: string,
-  chip: number,
+  color?: string,
+  chip?: string,
   breed: string,
 }
 
@@ -32,7 +32,7 @@ const Pet: FC<PetProps> = ({ name, animal, birthday, chip, color, sex, breed }) 
       chip={chip}
       color={color}
       sex={sex}
-      key={name + chip.toString()}
+      key={name + chip}
     />
   </div>
 );

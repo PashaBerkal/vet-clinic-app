@@ -6,42 +6,28 @@ import LastVisit from './LastVisit/LastVisit';
 import Therapy from './Therapy/Therapy';
 import { ReactComponent as Arrow } from './assets/Arrow.svg';
 import classes from './CardPet.module.scss';
-
-interface Pet {
-  name: string,
-  birthday: string,
-  animal: string,
-  sex: string,
-  color: string,
-  chip: number,
-  breed: string,
-  id: string,
-}
-const pets: Pet[] = [
-  {
-    name: 'Кеша',
-    birthday: '28.07.2004',
-    animal: 'Кот',
-    sex: 'Самец',
-    color: 'Чёерный',
-    chip: 12121212,
-    breed: 'Ориентальный кот',
-    id: '3',
-  },
-  {
-    name: 'Барс',
-    birthday: '28.07.2004',
-    animal: 'Кот',
-    sex: 'Самец',
-    color: 'Чёерный',
-    chip: 12121212,
-    breed: 'Ориентальный кот',
-    id: '2',
-  },
-];
+import { useFetchPetQuery } from '../../redux/pets/petsApiSlice';
+import { useFetchRecordsQuery, useFetchVisitsQuery } from '../../redux/visits/visitsApiSlice';
 
 const CardPet = () => {
   const { id } = useParams();
+  const { data: pet, isError: isErrorPet, isLoading: isLoadingPet } = useFetchPetQuery(
+    { petId: id },
+  );
+  const petID = pet && pet.pet_id;
+  const { data: record, isError: isErrorRecord, isLoading: isLoadingRecord } = useFetchRecordsQuery(
+    {
+      petId: petID,
+      maxCount: 1,
+    },
+  );
+  const { data: visit, isLoading: isLoadingVisit, isError: isErrorVisit } = useFetchVisitsQuery(
+    {
+      petId: petID,
+      maxCount: 1,
+    },
+  );
+
   return (
     <Container>
       <Link to="/PetsPage" style={{ textDecoration: 'none' }}>
@@ -51,21 +37,26 @@ const CardPet = () => {
         </div>
       </Link>
       <div className={classes.CardPet}>
-        { pets.filter((pet) => pet.id === id).map((pet, index) => (
-          <Pet
-            animal={pet.animal}
+        {isLoadingPet && <p>загрузка...</p>}
+        {isErrorPet && <p>Произошла ошибка</p>}
+        {pet
+          && <Pet
+            animal={pet.kind.kind_name}
             birthday={pet.birthday}
-            chip={pet.chip}
-            color={pet.color}
+            chip={pet.pet_id}
+            color={pet.color?.color_name}
             name={pet.name}
-            sex={pet.sex}
-            breed={pet.breed}
-            key={index?.toString()}
-          />
-        )) }
+            sex={pet.sex.sex_name}
+            breed={pet.breed ? pet.breed.breed_name : ''}
+            key={pet.pet_id?.toString()}
+          />}
         <div className={classes.infoSection}>
-          <NearestEntry />
-          <LastVisit />
+          {isLoadingRecord && <p>загрузка...</p>}
+          {isErrorRecord && <p>Произошла ошибка</p>}
+          {record && <NearestEntry visitInfo={record[0]} />}
+          {isLoadingVisit && <p>загрузка...</p>}
+          {isErrorVisit && <p>Произошла ошибка</p>}
+          {visit && <LastVisit date={visit[0] ? visit[0].date : ''} procedure={visit[0]?.diagnoses[0] ? visit[0].diagnoses[0].diagnosis_name : ''} />}
         </div>
         <Therapy />
       </div>

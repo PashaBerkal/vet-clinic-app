@@ -1,4 +1,3 @@
-import { IPet } from '../../models/IPet';
 import { IMainRecord, IVisit, MainRecordRequestParams } from '../../models/IVisit';
 import { apiSlice } from '../api/apiSlice';
 

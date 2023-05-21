@@ -15,17 +15,17 @@ const baseQuery = fetchBaseQuery({
 });
 
 const baseQueryWithReauth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (args, api, extraOptions) => {
-  let result = await baseQuery(args, api, extraOptions);
-  if (result?.error?.status === 403) {
-    console.log('sending refresh token');
+  const result = await baseQuery(args, api, extraOptions);
+  // if (result?.error?.status === 403) {
+  //   console.log('sending refresh token');
 
-    const refreshResult = await baseQuery('/refresh', api, extraOptions);
-    if (refreshResult?.data) {
-      result = await baseQuery(args, api, extraOptions);
-    } else {
-      api.dispatch(logOut());
-    }
-  }
+  //   const refreshResult = await baseQuery('/refresh', api, extraOptions);
+  //   if (refreshResult?.data) {
+  //     result = await baseQuery(args, api, extraOptions);
+  //   } else {
+  //     api.dispatch(logOut());
+  //   }
+  // }
 
   return result;
 };
