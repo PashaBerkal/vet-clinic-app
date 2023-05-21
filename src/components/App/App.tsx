@@ -7,8 +7,11 @@ import RecordsPage from '../../pages/RecordsPage';
 import AuthPage from '../../pages/AuthPage/AuthPage';
 import PrivateWrapper from '../../common/PrivateWrapper';
 import CardPet from '../../pages/CardPet/CardPet';
+import { useAppSelector } from '../../hooks/redux';
+import OnlineAppointment from '../OnlineAppointment/OnlineAppointment';
 
 const App = () => {
+  const { isWindowOpen } = useAppSelector((state) => state.appointment);
   const routes: JSX.Element = (
     <Routes>
       <Route element={<PrivateWrapper />}>
@@ -21,7 +24,12 @@ const App = () => {
       <Route path="/Auth" element={<AuthPage />} />
     </Routes>
   );
-  return <Layout>{routes}</Layout>;
+  return (
+    <>
+      <Layout>{routes}</Layout>
+      <OnlineAppointment visible={isWindowOpen} />
+    </>
+  );
 };
 
 export default App;

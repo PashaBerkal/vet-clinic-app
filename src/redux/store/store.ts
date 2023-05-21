@@ -2,10 +2,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { apiSlice } from '../api/apiSlice';
 import authReducer, { AuthState } from '../auth/authSlice';
+import appointmentReducer, { AppointmentState } from '../appointment/appointment';
 
 const rootReducer = {
   [apiSlice.reducerPath]: apiSlice.reducer,
   auth: authReducer,
+  appointment: appointmentReducer,
 };
 
 export const setupStore = () =>
@@ -16,6 +18,7 @@ export const setupStore = () =>
 
 export type RootState = {
   auth: AuthState;
+  appointment: AppointmentState;
 };
 
 export type AppStore = ReturnType<typeof setupStore>;

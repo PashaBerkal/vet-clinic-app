@@ -1,0 +1,69 @@
+.onlineEntryWrapper{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #46464633;
+    z-index: 3;
+
+    .onlineEntry{
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        padding: 32px;
+        width: 670px;
+        height: 430px;
+        background: linear-gradient(0deg, rgba(89, 84, 168, 0.05), rgba(89, 84, 168, 0.05)), #FFFBFF;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 4;
+
+        .header{
+            .topPart{
+                display: flex;
+                justify-content: space-between;
+                .name{
+                    color: #00639B;
+                    margin: 0;
+                    font-size: 14px;
+                }
+                .number{
+                    @extend .name
+                }
+            }
+
+            .statusBar{
+                margin: 15px 0;
+                width: 100%;
+                background: #E5E1EC;
+                .status{
+                    transition: all 1s;
+                    width: 5px;
+                    height: 4px;
+                    background: #5954A8;
+                }
+            }
+
+            .bottomPart{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .finishWindow{
+        @extend .onlineEntry;
+        .header .topPart .name,
+        .statusBar,
+        .bottomPart{
+            display: none;
+        }
+        width: 492px;
+        height: 132px;
+    }
+}
