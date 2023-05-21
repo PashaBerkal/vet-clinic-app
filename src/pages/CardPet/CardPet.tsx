@@ -44,7 +44,7 @@ const CardPet = () => {
             animal={pet.kind.kind_name}
             birthday={pet.birthday}
             chip={pet.pet_id}
-            color={pet.color?.color_name.toString()}
+            color={pet.color?.color_name}
             name={pet.name}
             sex={pet.sex.sex_name}
             breed={pet.breed ? pet.breed.breed_name : ''}

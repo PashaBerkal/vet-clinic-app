@@ -27,6 +27,18 @@ export interface IPet {
   breed: Breed;
   chip_number?: string;
 }
+
+interface DiagnosesType {
+  id: number;
+  value: string;
+}
+
+interface Diagnoses {
+  diagnosis_id: number;
+  diagnosis_name: string;
+  diagnosis_type: DiagnosesType;
+}
+
 export interface IPetFullInfo {
   pet_id?: string;
   color?: Color;
@@ -37,16 +49,7 @@ export interface IPetFullInfo {
   kind: Kind;
   breed: Breed;
   chip_number?: string;
-  pet_diagnoses?: [
-    {
-      diagnosis_id: number;
-      diagnosis_name: string;
-      diagnosis_type: {
-        id: number;
-        value: string;
-      };
-    },
-  ];
+  pet_diagnoses?: Diagnoses[]
 }
 
 export interface PetRequestParams {

@@ -6,7 +6,7 @@ import { ReactComponent as Secondary } from '../../../assets/visitTypes/Secondar
 import { ReactComponent as Vaccination } from '../../../assets/visitTypes/Vaccination.svg';
 import classes from './Visit.module.scss';
 
-type visitProps = {
+type VisitProps = {
     name: string,
     date: string,
     procedure: string,
@@ -15,7 +15,7 @@ type visitProps = {
 
 const Visit = ({
   name, date, procedure, result,
-}: visitProps) => {
+}: VisitProps) => {
   const renderType = (type: string) => {
     switch (type) {
       case 'FIRST':

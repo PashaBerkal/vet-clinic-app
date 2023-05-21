@@ -3,12 +3,12 @@ import { Button } from '@material-ui/core';
 import moment from 'moment';
 import classes from './LastVisit.module.scss';
 
-interface visitProps {
+interface VisitProps {
   date?: string,
   procedure: string,
 }
 
-const LastVisit: FC<visitProps> = ({ date, procedure }) => (
+const LastVisit: FC<VisitProps> = ({ date, procedure }) => (
   <div className={classes.LastVisit}>
     <div className={classes.title}>Последний визит</div>
     <div className={classes.text}>
