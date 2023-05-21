@@ -1,0 +1,29 @@
+.chooseDate {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    .dateSettings {
+        display: flex;
+        gap: 10px;
+        .textField {
+            width: 100%;
+        }
+    }
+
+    .footer {
+        display: flex;
+        justify-content: flex-end;
+
+        .button {
+            width: 133px;
+            display: block;
+            width: 100%;
+            font-weight: 500;
+            font-size: 12px;
+            border-radius: 20px;
+        }
+    }
+}

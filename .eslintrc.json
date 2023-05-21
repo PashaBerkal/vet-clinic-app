@@ -68,7 +68,8 @@
             }
         ],
         "import/prefer-default-export": "off",
-        "arrow-body-style": "warn"
+        "arrow-body-style": "warn",
+        "max-len": ["warn", { "code": 110 }]
     },
     "settings": {
         "editor": {
