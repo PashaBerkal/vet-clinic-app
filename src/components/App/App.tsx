@@ -9,6 +9,7 @@ import PrivateWrapper from '../../common/PrivateWrapper';
 import CardPet from '../../pages/CardPet/CardPet';
 import { useAppSelector } from '../../hooks/redux';
 import OnlineAppointment from '../OnlineAppointment/OnlineAppointment';
+import MedicalCardPet from '../../pages/MedicalCardPet/MedicalCardPet';
 
 const App = () => {
   const { isWindowOpen } = useAppSelector((state) => state.appointment);
@@ -17,6 +18,7 @@ const App = () => {
       <Route element={<PrivateWrapper />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/MedicalCardPage" element={<MedicalCardPage />} />
+        <Route path="/MedicalCardPage/:id" element={<MedicalCardPet />} />
         <Route path="/PetsPage" element={<PetsPage />} />
         <Route path="/PetsPage/:id" element={<CardPet />} />
         <Route path="/RecordsPage" element={<RecordsPage />} />

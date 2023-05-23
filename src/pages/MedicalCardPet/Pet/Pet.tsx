@@ -5,15 +5,14 @@ import classes from './Pet.module.scss';
 
 interface PetProps {
   name: string,
-  birthday: string,
-  animal: string,
-  sex: string,
-  color?: string,
-  chip?: string,
   breed: string,
+  animal: string,
+  weight: number,
+  pulse: number,
+  breathingRate: number,
 }
 
-const Pet: FC<PetProps> = ({ name, animal, birthday, chip, color, sex, breed }) => (
+const Pet: FC<PetProps> = ({ name, pulse, weight, breed, animal, breathingRate }) => (
   <div className={classes.Pet}>
     <div className={classes.main}>
       <div className={classes.img}>
@@ -27,12 +26,10 @@ const Pet: FC<PetProps> = ({ name, animal, birthday, chip, color, sex, breed }) 
       </div>
     </div>
     <DataPet
-      animal={animal}
-      birthday={birthday}
-      chip={chip}
-      color={color}
-      sex={sex}
-      key={name + chip}
+      weight={weight}
+      pulse={pulse}
+      breathingRate={breathingRate}
+      key={name + Math.random()}
     />
   </div>
 );
