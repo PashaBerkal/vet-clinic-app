@@ -21,10 +21,9 @@ const CardPet = () => {
       maxCount: 1,
     },
   );
-  const { data: visit, isLoading: isLoadingVisit, isError: isErrorVisit } = useFetchVisitsQuery(
+  const { data: visits, isLoading: isLoadingVisit, isError: isErrorVisit } = useFetchVisitsQuery(
     {
       petId: petID,
-      maxCount: 1,
     },
   );
 
@@ -56,9 +55,13 @@ const CardPet = () => {
           {record && <NearestEntry visitInfo={record[0]} />}
           {isLoadingVisit && <p>загрузка...</p>}
           {isErrorVisit && <p>Произошла ошибка</p>}
-          {visit && <LastVisit date={visit[0] ? visit[0].date : ''} procedure={visit[0]?.diagnoses[0] ? visit[0].diagnoses[0].diagnosis_name : ''} />}
+          {visits
+           && <LastVisit
+             date={visits[0] ? visits[0].date : ''}
+             procedure={visits[0]?.diagnoses[0] ? visits[0].diagnoses[0].diagnosis_name : ''}
+           />}
         </div>
-        <Therapy />
+        {visits && <Therapy visits={visits} />}
       </div>
     </Container>
   );

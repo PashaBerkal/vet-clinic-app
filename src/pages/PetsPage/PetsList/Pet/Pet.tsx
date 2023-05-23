@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import classes from './Pet.module.scss';
 import { ReactComponent as Arrow } from '../../assets/Arrow.svg';
-import renderPetImg from '../../../../utils/getImageByType';
+import renderPetImg from '../../../../utils/getImageByBreed';
 
 interface PetProps {
   name: string,

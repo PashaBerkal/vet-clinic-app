@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import getImageByBreed from '../../../../../utils/getImageByType';
+import getImageByBreed from '../../../../../utils/getImageByBreed';
 import classes from './Pet.module.scss';
 
 type Props = {
