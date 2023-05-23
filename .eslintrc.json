@@ -69,7 +69,8 @@
         ],
         "import/prefer-default-export": "off",
         "arrow-body-style": "warn",
-        "max-len": ["warn", { "code": 110 }]
+        "max-len": ["warn", { "code": 110 }],
+        "eslint linebreak-style": "off"
     },
     "settings": {
         "editor": {
