@@ -30,6 +30,7 @@ export interface IMainRecord {
   type: string;
   description: string;
   pet: Pet;
+  status: string;
 }
 interface DiagnosesType {
   id: number;
@@ -47,6 +48,9 @@ export interface IVisit {
   pet: Pet;
   type: string;
   visit_id: number;
+  prescription: string;
+  anamnesis: string;
+  recommendation: string;
 }
 
 export interface MainRecordRequestParams {

@@ -1,19 +1,19 @@
+import { FC } from 'react';
 import AccordionCard from '../../../common/AccordionCard/AccordionCard';
+import { IVisit } from '../../../models/IVisit';
 import classes from './Therapy.module.scss';
 
-const Therapy = () => (
+interface PropsTherapy {
+  visits?: IVisit[]
+}
+
+const Therapy: FC<PropsTherapy> = ({ visits }) => (
   <div className={classes.Therapy}>
-    <div className={classes.title}>Сейчас Кеша лечит</div>
+    <div className={classes.title}>Диагнозы</div>
     <div className={classes.diagnoses}>
-      <AccordionCard />
-      <AccordionCard />
-      <AccordionCard />
-      <AccordionCard />
-      <AccordionCard />
-      <AccordionCard />
-      <AccordionCard />
-      <AccordionCard />
-      <AccordionCard />
+      {visits && visits.map((visit, index) => (
+        <AccordionCard diagnosis={visit.diagnoses[0].diagnosis_name} prescription={visit.prescription} />
+      ))}
     </div>
   </div>
 );

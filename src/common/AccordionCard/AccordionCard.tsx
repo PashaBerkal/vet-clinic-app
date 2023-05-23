@@ -6,7 +6,12 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import classes from './AccordionCard.module.scss';
 
-const AccordionCard = () => {
+interface PropsAccordionCard {
+  diagnosis: string,
+  prescription: string
+}
+
+const AccordionCard: React.FC<PropsAccordionCard> = ({ diagnosis, prescription }) => {
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
   const handleChange = (panel: string) => (
@@ -16,17 +21,20 @@ const AccordionCard = () => {
     setExpanded(isExpanded ? panel : false);
   };
   return (
-    <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')} className={classes.Accordion}>
+    <Accordion
+      expanded={expanded === 'panel4'}
+      onChange={handleChange('panel4')}
+      className={classes.Accordion}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         id="panel4bh-header"
       >
-        <Typography className={classes.title}>Соскоб с кожи на паразиты и дерматофиты </Typography>
+        <Typography className={classes.title}>{diagnosis}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography className={classes.subtitle}>
-          Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-          amet egestas eros, vitae egestas augue. Duis vel est augue.
+          {prescription}
         </Typography>
       </AccordionDetails>
     </Accordion>

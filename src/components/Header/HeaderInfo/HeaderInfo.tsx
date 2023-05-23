@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import Contacts from './Contacts';
 import User from './User';
 import { useAppSelector } from '../../../hooks/redux';
-import classes from './HeaderInfo.module.scss';
 import { useFetchUserQuery } from '../../../redux/auth/authApiSlice';
+import classes from './HeaderInfo.module.scss';
 
 const HeaderInfo = () => {
   const { isAuth } = useAppSelector((state) => state.auth);
@@ -13,11 +13,11 @@ const HeaderInfo = () => {
   }, [isAuth]);
   return (
     <div className={classes.HeaderInfo}>
-      {isLoading && <p>загрузка...</p>}
-      {isError && <p>Произошла ошибка</p>}
       {isAuth
         ? (
           <>
+            {isLoading && <p>загрузка...</p>}
+            {isError && <p>Произошла ошибка</p>}
             <Contacts />
             <User name={user?.name} surname={user?.surname} />
           </>

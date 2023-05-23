@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
 import Alert, { AlertColor } from '@material-ui/core/Alert';
+import moment from 'moment';
 import { ReactComponent as Procedure } from '../../assets/Procedure.svg';
 import MenuButton from '../../../../common/MenuButton/MenuButton';
 import classes from './Visit.module.scss';
+import getImageByRecordType from '../../../../utils/getImageByRecordType';
 
 interface VisitProps {
     name: string,
@@ -10,9 +12,10 @@ interface VisitProps {
     procedure: string,
     doctor: string,
     state: AlertColor,
+    type: string,
 }
 
-const Visit: FC<VisitProps> = ({ name, date, doctor, procedure, state }) => {
+const Visit: FC<VisitProps> = ({ name, date, doctor, procedure, state, type }) => {
   const renderSwitch = (status: AlertColor) => {
     switch (status) {
       case 'success':
@@ -26,21 +29,21 @@ const Visit: FC<VisitProps> = ({ name, date, doctor, procedure, state }) => {
     }
   };
   const onChange = () => {
-    console.log('Перенести запись');
+    console.log('Отменить запись');
   };
   return (
     <div className={classes.Visit}>
       <div className={classes.leftPositionInfo}>
         <div className={classes.logo}>
           <div className={classes.img}>
-            <Procedure />
+            {getImageByRecordType(type)}
           </div>
           <div className={classes.text}>
             <div className={classes.name}>
               {name}
             </div>
             <div className={classes.date}>
-              {date}
+              {moment(date).format('L, LT')}
             </div>
           </div>
         </div>
