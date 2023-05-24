@@ -21,7 +21,9 @@ const MenuButton: React.FC<PropsMenuButton> = ({ options }) => {
   };
   const handleClose = (index: number) => {
     setAnchorEl(null);
-    options[index].onChange();
+    if (options[index]) {
+      options[index].onChange();
+    }
   };
 
   return (
