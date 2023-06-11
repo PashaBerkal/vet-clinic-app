@@ -1,0 +1,76 @@
+.VisitDate {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    background: #E3DFFF;
+    border-radius: 12px;
+    height: 100%;
+
+    .text {
+        display: flex;
+        height: 80%;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title {
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        .date {
+            font-weight: 500;
+            font-size: 20px;
+            color: #5954A8;
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .VisitDate {
+        .text {
+            .title {
+                font-size: 14px;
+            }
+
+            .date {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .VisitDate {
+        .text {
+            .title {
+                font-size: 12px;
+            }
+
+            .date {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .VisitDate {
+        .text {
+            .title {
+                font-size: 10px;
+            }
+
+            .date {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-height: 750px) {
+    .VisitDate {
+        padding: 8px;
+    }
+}

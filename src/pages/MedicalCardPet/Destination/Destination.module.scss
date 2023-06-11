@@ -1,0 +1,44 @@
+.Destination {
+    position: relative;
+    height: 100%;
+    .title {
+        margin-bottom: 25px;
+        font-weight: 500;
+        font-size: 22px;
+    }
+    .button {
+        position: absolute;
+        border: 1px solid #817f88;
+        color: #00639B;
+        display: block;
+        width: 140px;
+        font-weight: 500;
+        font-size: 10px;
+        border-radius: 12px;
+        margin-top: 10px;
+        right: 0px;
+    }
+}
+@media (max-width: 1400px) {
+    .Destination {
+        .title {
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .Destination {
+        .title {
+            font-size: 18px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .Destination {
+        .title {
+            font-size: 16px;
+        }
+    }
+}

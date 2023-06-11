@@ -53,7 +53,26 @@ export interface IVisit {
   recommendation: string;
 }
 
+export interface IVisitHistory {
+  date: string;
+  diagnoses: Diagnoses[];
+  pet: Pet;
+  type: string;
+  visit_id: number;
+  prescription: string;
+  anamnesis: string;
+  recommendation: string;
+  weight: string,
+  breath_beat: string,
+  heart_beat: string,
+  first_visit_id?: number,
+}
+
 export interface MainRecordRequestParams {
   maxCount?: number;
   petId?: string;
+}
+
+export interface IVisitHistoryRecordRequestParams {
+  visitId?: string,
 }

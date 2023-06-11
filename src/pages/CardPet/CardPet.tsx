@@ -1,4 +1,6 @@
-import { Link, useParams } from 'react-router-dom';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Container from '../../hoc/Container/Container';
 import Pet from './Pet/Pet';
 import NearestEntry from '../../common/NearestEntry/NearestEntry';
@@ -26,15 +28,15 @@ const CardPet = () => {
       petId: petID,
     },
   );
+  const navigate = useNavigate();
+  const clickHandler = () => navigate(-1);
 
   return (
     <Container>
-      <Link to="/PetsPage" style={{ textDecoration: 'none' }}>
-        <div className={classes.back}>
-          <Arrow />
-          Назад
-        </div>
-      </Link>
+      <div onClick={clickHandler} className={classes.back}>
+        <Arrow />
+        Назад
+      </div>
       <div className={classes.CardPet}>
         {isLoadingPet && <p>загрузка...</p>}
         {isErrorPet && <p>Произошла ошибка</p>}
