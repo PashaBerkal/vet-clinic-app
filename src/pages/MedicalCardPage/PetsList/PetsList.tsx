@@ -1,113 +1,29 @@
-import Pet from './Pet/Pet';
+import { useEffect } from 'react';
+import { useFetchVisitsQuery } from '../../../redux/visits/visitsApiSlice';
+import Visit from './Visit/Visit';
 import classes from './PetsList.module.scss';
 
-type PetItem = {
-    name: string,
-    date: string,
-    procedure: string,
-    result: string,
-    id: number
-}
-
-const pets: PetItem[] = [
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 1,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 2,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 3,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 4,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 1,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 2,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 3,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 4,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 1,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 2,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 3,
-  },
-  {
-    name: 'Кеша',
-    date: '12.03.2023, 12:12',
-    procedure: 'Вакцинация',
-    result: 'Название вакцины',
-    id: 4,
-  },
-];
-
-const PetsList = () => (
-  <div className={classes.PetsList}>
-    {pets.map((pet, index) => (
-      <Pet
-        name={pet.name}
-        date={pet.date}
-        procedure={pet.procedure}
-        result={pet.result}
-        key={index.toString() + pet.name}
-      />
-    ))}
-  </div>
-);
+const PetsList = () => {
+  const { data: visits, isError, isLoading, refetch } = useFetchVisitsQuery({});
+  useEffect(() => {
+    refetch();
+  }, []);
+  return (
+    <div className={classes.PetsList}>
+      {isLoading && <p>загрузка...</p>}
+      {isError && <p>Произошла ошибка</p>}
+      {visits && visits.map((visit, index) => (
+        <Visit
+          name={visit.pet.name}
+          date={visit.date}
+          result={visit.diagnoses[0] ? visit.diagnoses[0].diagnosis_name : 'Нет данных'}
+          procedure={visit.type}
+          key={index.toString() + visit.type}
+          id={visit.visit_id}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default PetsList;

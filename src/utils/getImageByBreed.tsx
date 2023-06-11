@@ -1,34 +1,34 @@
-import { ReactComponent as Cat } from './assets/pets/Cat.svg';
-import { ReactComponent as Dog } from './assets/pets/Dog.svg';
-import { ReactComponent as Ferret } from './assets/pets/Ferret.svg';
-import { ReactComponent as GuineaPig } from './assets/pets/GuineaPig.svg';
-import { ReactComponent as Horse } from './assets/pets/Horse.svg';
-import { ReactComponent as Mouse } from './assets/pets/Mouse.svg';
-import { ReactComponent as Other } from './assets/pets/Other.svg';
-import { ReactComponent as Pig } from './assets/pets/Pig.svg';
-import { ReactComponent as Turtle } from './assets/pets/Turtle.svg';
-import { ReactComponent as Сhinchilla } from './assets/pets/Сhinchilla.svg';
+import Cat from './assets/pets/Cat.png';
+import Dog from './assets/pets/Dog.png';
+import Ferret from './assets/pets/Ferret.png';
+import GuineaPig from './assets/pets/GuineaPig.png';
+import Horse from './assets/pets/Horse.png';
+import Mouse from './assets/pets/Mouse.png';
+import Turtle from './assets/pets/Turtle.png';
+import Сhinchilla from './assets/pets/Сhinchilla.png';
+import Pig from './assets/pets/Pig.png';
 
 const getImageByBreed = (breed: string) => {
-  let img = <Other />;
+  const imgStyle = { width: '100%', height: '100%' };
+  let img = <img src="./assets/pets/Other.png" alt="Other" style={imgStyle} />;
   if (breed === 'Кошка' || breed === 'Кот') {
-    img = <Cat />;
+    img = <img src={Cat} alt="Cat" style={imgStyle} />;
   } else if (breed === 'Собака') {
-    img = <Dog />;
+    img = <img src={Dog} alt="Dog" />;
   } else if (breed === 'Хорек' || breed === 'Ласка' || breed === 'Норка' || breed === 'Соболь') {
-    img = <Ferret />;
+    img = <img src={Ferret} alt="Ferret" style={imgStyle} />;
   } else if (breed === 'Морская свинка') {
-    img = <GuineaPig />;
+    img = <img src={GuineaPig} alt="GuineaPig" style={imgStyle} />;
   } else if (breed === 'Сурикат' || breed === 'Енот' || breed === 'Лошадь') {
-    img = <Horse />;
+    img = <img src={Horse} alt="Horse" style={imgStyle} />;
   } else if (breed === 'Мышь' || breed === 'Хомяк' || breed === 'Крыса' || breed === 'Дегу') {
-    img = <Mouse />;
+    img = <img src={Mouse} alt="Mouse" style={imgStyle} />;
   } else if (breed === 'Минипиг') {
-    img = <Pig />;
+    img = <img src={Pig} alt="Pig" style={imgStyle} />;
   } else if (breed === 'Черепаха') {
-    img = <Turtle />;
+    img = <img src={Turtle} alt="Turtle" style={imgStyle} />;
   } else if (breed === 'Шиншилла') {
-    img = <Сhinchilla />;
+    img = <img src={Сhinchilla} alt="Сhinchilla" style={imgStyle} />;
   }
   return img;
 };

@@ -7,9 +7,9 @@ interface PetProps {
   name: string,
   breed: string,
   animal: string,
-  weight: number,
-  pulse: number,
-  breathingRate: number,
+  weight: string,
+  pulse: string,
+  breathingRate: string,
 }
 
 const Pet: FC<PetProps> = ({ name, pulse, weight, breed, animal, breathingRate }) => (
@@ -21,9 +21,11 @@ const Pet: FC<PetProps> = ({ name, pulse, weight, breed, animal, breathingRate }
       <div className={classes.name}>
         {name}
       </div>
-      <div className={classes.breed}>
-        {breed}
-      </div>
+      {breed
+        && (
+          <div className={classes.breed}>
+            {breed}
+          </div>)}
     </div>
     <DataPet
       weight={weight}

@@ -1,4 +1,4 @@
-import { IMainRecord, IVisit, MainRecordRequestParams } from '../../models/IVisit';
+import { IMainRecord, IVisit, IVisitHistory, IVisitHistoryRecordRequestParams, MainRecordRequestParams } from '../../models/IVisit';
 import { apiSlice } from '../api/apiSlice';
 
 const apiWithTag = apiSlice.enhanceEndpoints({ addTagTypes: ['MainRecord'] });
@@ -32,7 +32,19 @@ export const visitApiSlice = apiWithTag.injectEndpoints({
         };
       },
     }),
+    fetchVisitHistory: build.query<IVisitHistory, IVisitHistoryRecordRequestParams>({
+      query: (arg) => {
+        const { visitId } = arg;
+        return {
+          url: '/api/v4/visit',
+          method: 'GET',
+          params: {
+            visit_id: visitId,
+          },
+        };
+      },
+    }),
   }),
 });
 
-export const { useFetchRecordsQuery, useFetchVisitsQuery } = visitApiSlice;
+export const { useFetchRecordsQuery, useFetchVisitsQuery, useFetchVisitHistoryQuery } = visitApiSlice;

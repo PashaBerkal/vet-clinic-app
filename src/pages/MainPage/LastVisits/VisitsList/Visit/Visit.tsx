@@ -1,8 +1,7 @@
 import moment from 'moment';
 import { ReactComponent as ArrowBig } from '../../../assets/ArrowBig.svg';
 import classes from './Visit.module.scss';
-import getImageByBreed from '../../../../../utils/getImageByBreed';
-import getImageByType from '../../../../../utils/getImageByType';
+import getImageByVisitType from '../../../../../utils/getImageByVisitType';
 
 type VisitProps = {
     name: string,
@@ -17,7 +16,7 @@ const Visit = ({
   <div className={classes.Visit}>
     <div className={classes.leftPositionInfo}>
       <div className={classes.logo}>
-        {getImageByType(procedure).img}
+        {getImageByVisitType(procedure).img}
       </div>
       <div className={classes.text}>
         <div className={classes.name}>
@@ -34,7 +33,7 @@ const Visit = ({
           {result}
         </div>
         <div className={classes.procedure}>
-          {getImageByType(procedure).procedure}
+          {getImageByVisitType(procedure).procedure}
         </div>
       </div>
       <div className={classes.arrow}>

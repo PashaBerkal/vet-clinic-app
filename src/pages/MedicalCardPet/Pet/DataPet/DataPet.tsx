@@ -5,9 +5,9 @@ import { ReactComponent as BreathingRate } from '../../assets/BreathingRate.svg'
 import classes from './DataPet.module.scss';
 
 interface DataPetProps {
-  weight: number,
-  pulse: number,
-  breathingRate: number,
+  weight: string,
+  pulse: string,
+  breathingRate?: string,
 }
 
 const DataPet: FC<DataPetProps> = ({ breathingRate, pulse, weight }) => (
