@@ -5,18 +5,20 @@ import clsx from 'clsx';
 import { surgeryProcedures, ultrasonographyProcedures } from './procedures';
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
 import classes from './ChooseService.module.scss';
-import { nextStep, setProcedure } from '../../../redux/appointment/appointment';
+import { ProcedureType, nextStep, setProcedure } from '../../../redux/appointment/appointment';
 import { useAppDispatch } from '../../../hooks/redux';
 import SearchField from '../../../common/SearchField/SearchField';
+import { useFetchSurgeonsQuery } from '../../../redux/visits/visitsApiSlice';
 
-type ChooseProcedureProps = {
-    procedures: Array<string>;
-}
+// type ChooseProcedureProps = {
+//     procedures: Array<string>;
+// }
 
-const ChooseProcedure: React.FC<ChooseProcedureProps> = ({ procedures }) => {
+const ChooseProcedure: React.FC = () => {
   const dispatch = useAppDispatch();
-  const procedureClickHandler = (index: number) => {
-    dispatch(setProcedure(procedures[index]));
+  const { data: procedures, isLoading } = useFetchSurgeonsQuery({});
+  const procedureClickHandler = (id: number, name: string) => {
+    dispatch(setProcedure({ id, name, type: ProcedureType.Surgeon }));
     dispatch(nextStep());
   };
 
@@ -35,16 +37,16 @@ const ChooseProcedure: React.FC<ChooseProcedureProps> = ({ procedures }) => {
       />
       <div className={classes.chooseServiceContentWrapper}>
         <div className={classes.chooseServiceContent}>
+          { isLoading && 'Загрузка' }
           {
-        procedures
-          .filter((elem) => elem.toLowerCase().includes(value.toLowerCase()))
+        procedures?.filter((elem) => elem.name.toLowerCase().includes(value.toLowerCase()))
           .map((description, index) => (
             <div
               key={(index + Math.random()).toString()}
-              onClick={() => procedureClickHandler(index)}
+              onClick={() => procedureClickHandler(description.id, description.name)}
               className={classes.service}
             >
-              <p>{description}</p>
+              <p>{description.name}</p>
               <Arrow />
             </div>
           ))
@@ -56,21 +58,20 @@ const ChooseProcedure: React.FC<ChooseProcedureProps> = ({ procedures }) => {
 };
 
 const ChooseService: React.FC = () => {
+  const dispatch = useAppDispatch();
   const [procedureObject, setProcedureObject] = useState({
     isSelectedUltrasonography: false, isSelectedSurgery: false,
   });
-  const selectUltrasonography = () => setProcedureObject({ ...procedureObject, isSelectedUltrasonography: true });
+  const selectUltrasonography = () => {
+    dispatch(setProcedure({ id: 57, name: 'Ультразвуковое исследование', type: ProcedureType.Ultrasound }));
+    dispatch(nextStep());
+  };
   const selectSurgery = () => setProcedureObject({ ...procedureObject, isSelectedSurgery: true });
 
   const content = () => {
-    if (procedureObject.isSelectedUltrasonography) {
-      return (
-        <ChooseProcedure procedures={ultrasonographyProcedures} />
-      );
-    }
     if (procedureObject.isSelectedSurgery) {
       return (
-        <ChooseProcedure procedures={surgeryProcedures} />
+        <ChooseProcedure />
       );
     }
     return (

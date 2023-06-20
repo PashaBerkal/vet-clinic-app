@@ -1,4 +1,4 @@
-import { IMainRecord, IVisit, IVisitHistory, IVisitHistoryRecordRequestParams, MainRecordRequestParams } from '../../models/IVisit';
+import { AppointmentRequestParams, IFreeTimeRecordRequestParams, IFreeTimeRecordResponceParams, IMainRecord, ISurgeonsResponceParams, IVisit, IVisitHistory, IVisitHistoryRecordRequestParams, MainRecordRequestParams } from '../../models/IVisit';
 import { apiSlice } from '../api/apiSlice';
 
 const apiWithTag = apiSlice.enhanceEndpoints({ addTagTypes: ['MainRecord'] });
@@ -44,7 +44,33 @@ export const visitApiSlice = apiWithTag.injectEndpoints({
         };
       },
     }),
+    fetchFreeTime: build.query<IFreeTimeRecordResponceParams, IFreeTimeRecordRequestParams>({
+      query: (arg) => {
+        const { doctorId, date } = arg;
+        return {
+          url: '/api/v1/get_free_time',
+          method: 'GET',
+          params: {
+            doctor_id: doctorId,
+            date,
+          },
+        };
+      },
+    }),
+    fetchSurgeons: build.query<ISurgeonsResponceParams, object>({
+      query: () => ({
+        url: '/api/v1/get_surgeons',
+        method: 'GET',
+      }),
+    }),
+    fetchAppointment: build.mutation<object, AppointmentRequestParams>({
+      query: (bodyParams) => ({
+        url: `/api/v1/make_appointment?pet_id=${bodyParams.pet_id}&date=${bodyParams.date}&surgeon_id=${bodyParams.surgeon_id}&type=${bodyParams.type}`,
+        method: 'POST',
+        // body: bodyParams,
+      }),
+    }),
   }),
 });
 
-export const { useFetchRecordsQuery, useFetchVisitsQuery, useFetchVisitHistoryQuery } = visitApiSlice;
+export const { useFetchRecordsQuery, useFetchVisitsQuery, useFetchVisitHistoryQuery, useFetchFreeTimeQuery, useFetchSurgeonsQuery, useFetchAppointmentMutation } = visitApiSlice;

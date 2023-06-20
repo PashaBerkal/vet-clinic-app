@@ -11,6 +11,9 @@ const MyPets = () => {
   };
   const { data: pets, isLoading, isError, refetch } = useFetchAllPetsQuery({ name: '' });
 
+  const filteredPets = pets?.filter((pet) => pet?.name.toLocaleLowerCase()
+    .includes(value.toLocaleLowerCase()));
+
   useEffect(() => {
     refetch();
   }, []);
@@ -20,7 +23,7 @@ const MyPets = () => {
       <SearchField value={value} onChangeValue={onChangeHandler} />
       {isLoading && <p>загрузка...</p>}
       {isError && <p>Произошла ошибка</p>}
-      {pets && <PetsList pets={pets} />}
+      {pets && <PetsList pets={filteredPets} />}
     </div>
   );
 };

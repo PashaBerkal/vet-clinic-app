@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { Button } from '@material-ui/core';
 import moment from 'moment';
 import classes from './LastVisit.module.scss';
 
@@ -15,7 +14,6 @@ const LastVisit: FC<VisitProps> = ({ date, procedure }) => (
       {date ? moment(date).format('L, LT') : 'Нет данных'}
       <span>{procedure}</span>
     </div>
-    <Button variant="outlined" className={classes.button}>Подробнее</Button>
   </div>
 );
 

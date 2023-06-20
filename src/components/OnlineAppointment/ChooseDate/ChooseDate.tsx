@@ -1,40 +1,46 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatePicker from '@material-ui/lab/DatePicker';
 import ruLocale from 'date-fns/locale/ru';
 import { Button, TextField } from '@material-ui/core';
 import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
-import { LocalizationProvider, TimePicker } from '@material-ui/lab';
+import { LocalizationProvider } from '@material-ui/lab';
+import Autocomplete from '@material-ui/core/Autocomplete';
 import classes from './ChooseDate.module.scss';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { nextStep, setDateParams } from '../../../redux/appointment/appointment';
 import areAllFieldsFilled from '../../../utils/areAllFieldsFilled';
+import { useFetchFreeTimeQuery } from '../../../redux/visits/visitsApiSlice';
+import { formatToTimestamp } from '../../../utils/dateFormat';
 
 const ChooseDate = () => {
-  const [dateValue, setDateValue] = useState<Date | null>(new Date());
-  const [timeValue, setTimeValue] = useState<Date | null>(new Date());
+  const [dateValue, setDateValue] = useState<string>(new Date().toISOString().split('Z')[0]);
+
+  function formatFromTimestamp(dateString: string) {
+    const date = new Date(dateString);
+    const hours = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+    const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+    return `${hours}:${minutes}`;
+  }
+
+  const { data, refetch } = useFetchFreeTimeQuery({ doctorId: 0, date: dateValue });
+
+  useEffect(() => {
+    refetch();
+  }, [dateValue]);
+
+  const timeOptions = data?.free_time?.map((time: string) => formatFromTimestamp(time)) || [];
 
   const dispatch = useAppDispatch();
   const { recordingTime } = useAppSelector((state) => state.appointment);
-  const timePickerHandler = (newDate: Date | null) => {
-    if (newDate) {
-      setDateValue(newDate);
-      const hours = String(newDate.getHours()).padStart(2, '0');
-      const minutes = String(newDate.getMinutes()).padStart(2, '0');
-      const time = `${hours}:${minutes}`;
-
-      dispatch(setDateParams({ ...recordingTime, time }));
-    }
+  const timePickerHandler = (value: string | null) => {
+    dispatch(setDateParams({ ...recordingTime, time: value ?? '' }));
   };
   const datePickerHandler = (newDate: Date | null) => {
     if (newDate) {
-      setTimeValue(newDate);
-      const day = String(newDate.getDate()).padStart(2, '0');
-      const month = String(newDate.getMonth() + 1).padStart(2, '0');
-      const year = newDate.getFullYear();
-      const date = `${day}.${month}.${year}`;
-
-      dispatch(setDateParams({ ...recordingTime, date }));
+      const formatDate = formatToTimestamp(newDate);
+      setDateValue(formatDate);
+      dispatch(setDateParams({ ...recordingTime, date: formatDate }));
     }
   };
 
@@ -63,13 +69,16 @@ const ChooseDate = () => {
               />
             )}
           />
-          <TimePicker
+          <Autocomplete
             className={classes.datePicker}
-            value={timeValue}
-            onChange={timePickerHandler}
+            style={{ width: '100%' }}
+            onChange={(_, value) => timePickerHandler(value)}
+            disablePortal
+            options={timeOptions}
+            noOptionsText="нет свободного времени"
             renderInput={(params) => (
               <TextField
-                className={classes.textField}
+                label="время записи"
                 {...params}
               />
             )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -15,7 +15,7 @@ import Container from '../../hoc/Container/Container';
 import { AuthRequestParams } from '../../models/IAuth';
 import { useAppDispatch } from '../../hooks/redux';
 import { useLoginMutation } from '../../redux/auth/authApiSlice';
-import { setCredentials } from '../../redux/auth/authSlice';
+import { logOut, setCredentials } from '../../redux/auth/authSlice';
 import catImg from './assets/cat.png';
 import classes from './AuthPage.module.scss';
 
@@ -36,6 +36,10 @@ const AuthPage = () => {
     };
     setValues(newObj);
   };
+
+  useEffect(() => {
+    dispatch(logOut());
+  }, []);
 
   const handleClickShowPassword = () => {
     setIsShowPassword(!isShowPassword);
@@ -109,9 +113,6 @@ const AuthPage = () => {
           <Button variant="contained" size="large" onClick={authHandler} className={classes.button}>
             Войти
           </Button>
-          <div className={classes.forgot}>
-            Не помню пароль
-          </div>
         </div>
       </div>
     </Container>
