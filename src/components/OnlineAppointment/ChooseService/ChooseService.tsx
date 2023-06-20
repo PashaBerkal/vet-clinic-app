@@ -2,17 +2,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { ChangeEventHandler, useState } from 'react';
 import clsx from 'clsx';
-import { surgeryProcedures, ultrasonographyProcedures } from './procedures';
 import { ReactComponent as Arrow } from '../assets/arrow.svg';
 import classes from './ChooseService.module.scss';
 import { ProcedureType, nextStep, setProcedure } from '../../../redux/appointment/appointment';
 import { useAppDispatch } from '../../../hooks/redux';
 import SearchField from '../../../common/SearchField/SearchField';
 import { useFetchSurgeonsQuery } from '../../../redux/visits/visitsApiSlice';
-
-// type ChooseProcedureProps = {
-//     procedures: Array<string>;
-// }
 
 const ChooseProcedure: React.FC = () => {
   const dispatch = useAppDispatch();
