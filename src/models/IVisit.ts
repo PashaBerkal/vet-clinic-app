@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 interface Sex {
   sex_id: number;
   sex_name: string;
@@ -62,10 +63,10 @@ export interface IVisitHistory {
   prescription: string;
   anamnesis: string;
   recommendation: string;
-  weight: string,
-  breath_beat: string,
-  heart_beat: string,
-  first_visit_id?: number,
+  weight: string;
+  breath_beat: string;
+  heart_beat: string;
+  first_visit_id?: number;
 }
 
 export interface MainRecordRequestParams {
@@ -74,5 +75,41 @@ export interface MainRecordRequestParams {
 }
 
 export interface IVisitHistoryRecordRequestParams {
-  visitId?: string,
+  visitId?: string;
+}
+export interface IFreeTimeRecordRequestParams {
+  doctorId?: number;
+  date: Date | string | null;
+}
+export interface IFreeTimeRecordResponceParams {
+  free_time?: Array<string>;
+}
+
+type SurgeonsItem = {
+  id: number;
+  category: {
+    id: number;
+    value: string;
+  };
+  name: string;
+};
+
+export type ISurgeonsResponceParams = Array<SurgeonsItem>;
+
+export enum ProcedureType {
+  NotSelected = '',
+  Ultrasound = 'ULTRASOUND',
+  Surgeon = 'SURGEON',
+}
+
+export type SelectedProcedureType =
+ProcedureType.NotSelected
+| ProcedureType.Surgeon
+| ProcedureType.Ultrasound;
+
+export interface AppointmentRequestParams {
+  pet_id: number;
+  date: string;
+  surgeon_id: number;
+  type: SelectedProcedureType;
 }

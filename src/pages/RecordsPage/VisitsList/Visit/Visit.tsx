@@ -29,7 +29,7 @@ const Visit: FC<VisitProps> = ({ name, date, doctor, procedure, state, type }) =
     }
   };
   const onChange = () => {
-    console.log('Отменить запись');
+    // TODO: return after adding undo functionality
   };
   return (
     <div className={classes.Visit}>
@@ -64,9 +64,10 @@ const Visit: FC<VisitProps> = ({ name, date, doctor, procedure, state, type }) =
             }
           </Alert>
         </div>
-        <div className={classes.button}>
+        {/* TODO: return after adding undo functionality */}
+        {/* <div className={classes.button}>
           <MenuButton options={[{ onChange, value: 'Отменить запись' }]} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

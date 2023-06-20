@@ -1,38 +1,55 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
-export type RecordingTime = {
+type RecordingTime = {
   date: string;
   time: string;
 };
-export type VisitorInformation = {
-  petName: string;
-  userName: string;
-  userEmail: string;
+type Pet = {
+  id: number;
+  name: string;
+};
+
+export enum ProcedureType {
+  NotSelected = '',
+  Ultrasound = 'ULTRASOUND',
+  Surgeon = 'SURGEON',
+}
+
+type SelectedProcedureType = ProcedureType.NotSelected | ProcedureType.Surgeon | ProcedureType.Ultrasound;
+
+type Procedure = {
+  id: number;
+  name: string;
+  type: SelectedProcedureType;
 };
 
 export type AppointmentState = {
   step: number;
-  procedure: string;
+  procedure: Procedure;
   recordingTime: RecordingTime;
   isAgreementAcepted: boolean;
-  visitorInformation: VisitorInformation;
   isFinishRegistration: boolean;
   isWindowOpen: boolean;
+  pet: Pet;
 };
 
 const initialState: AppointmentState = {
   step: 1,
-  procedure: '',
+  procedure: {
+    id: 0,
+    name: '',
+    type: ProcedureType.NotSelected,
+  },
   recordingTime: {
     date: '',
     time: '',
   },
   isAgreementAcepted: false,
-  visitorInformation: {
-    petName: '',
-    userEmail: '',
-    userName: '',
+  pet: {
+    id: 0,
+    name: '',
   },
   isFinishRegistration: false,
   isWindowOpen: false,
@@ -48,7 +65,7 @@ export const appointmentSlice = createSlice({
       state.procedure = initialState.procedure;
       state.recordingTime = initialState.recordingTime;
       state.step = initialState.step;
-      state.visitorInformation = initialState.visitorInformation;
+      state.pet = initialState.pet;
     },
     setIsWindowOpen(state, action) {
       const data = action.payload;
@@ -64,6 +81,10 @@ export const appointmentSlice = createSlice({
       const { number } = action.payload;
       state.step = number;
     },
+    setPet(state, action) {
+      const data = action.payload;
+      state.pet = data;
+    },
     setProcedure(state, action) {
       const data = action.payload;
       state.procedure = data;
@@ -71,28 +92,15 @@ export const appointmentSlice = createSlice({
     setDateParams(state, action) {
       const data = action.payload;
       state.recordingTime = data;
+      console.log({ 'state.recordingTime': state.recordingTime });
     },
     setIsAgreementAcepted(state, action) {
       const data = action.payload;
       state.isAgreementAcepted = data;
     },
-    setVisitorInformation(state, action) {
-      const data = action.payload;
-      state.visitorInformation = data;
-    },
   },
 });
 
-export const {
-  nextStep,
-  prevStep,
-  setStep,
-  setProcedure,
-  setDateParams,
-  setIsAgreementAcepted,
-  setVisitorInformation,
-  setIsWindowOpen,
-  resetState,
-} = appointmentSlice.actions;
+export const { nextStep, prevStep, setStep, setProcedure, setDateParams, setIsAgreementAcepted, setIsWindowOpen, resetState, setPet } = appointmentSlice.actions;
 
 export default appointmentSlice.reducer;

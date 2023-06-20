@@ -3,11 +3,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { apiSlice } from '../api/apiSlice';
 import authReducer, { AuthState } from '../auth/authSlice';
 import appointmentReducer, { AppointmentState } from '../appointment/appointment';
+import visitsReducer, { VisitsState } from '../visits/visitsSlice';
 
 const rootReducer = {
   [apiSlice.reducerPath]: apiSlice.reducer,
   auth: authReducer,
   appointment: appointmentReducer,
+  visits: visitsReducer,
 };
 
 export const setupStore = () =>
@@ -19,6 +21,7 @@ export const setupStore = () =>
 export type RootState = {
   auth: AuthState;
   appointment: AppointmentState;
+  visits: VisitsState;
 };
 
 export type AppStore = ReturnType<typeof setupStore>;

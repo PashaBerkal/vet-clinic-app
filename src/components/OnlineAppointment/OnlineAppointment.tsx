@@ -9,6 +9,7 @@ import ChooseDate from './ChooseDate/ChooseDate';
 import classes from './OnlineAppointment.module.scss';
 import CompleteAppointment from './CompleteAppointment';
 import SuccessfullyAppointment from './SuccessfullyAppointment';
+import ChoosePet from './ChoosePet/ChoosePet';
 
 type OnlineAppointmentProps = {
   visible: boolean;
@@ -29,6 +30,12 @@ const OnlineAppointment: React.FC<OnlineAppointmentProps> = ({ visible }) => {
       className: classes.onlineEntry,
       isArrow: true,
       content: <ChooseDate />,
+    },
+    {
+      name: 'Выберите питомца',
+      className: classes.onlineEntry,
+      isArrow: true,
+      content: <ChoosePet />,
     },
     {
       name: 'Завершите запись',
@@ -67,7 +74,7 @@ const OnlineAppointment: React.FC<OnlineAppointmentProps> = ({ visible }) => {
                 <Close onClick={clickHandler} />
               </div>
               <div className={classes.statusBar}>
-                <div style={{ width: `${step * 33.3}%` }} className={classes.status} />
+                <div style={{ width: `${step * 25}%` }} className={classes.status} />
               </div>
               <div className={classes.bottomPart}>
                 {stepOptions[step - 1].isArrow && (<Arrow onClick={prevClickHandler} />)}
