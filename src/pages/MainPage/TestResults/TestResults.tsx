@@ -15,10 +15,9 @@ const TestResults = () => {
       {isError && <p>Произошла ошибка</p>}
       {analyzes && (
         <>
-          <div className={classes.resultsTitle}>Результаты анализов</div>
+          <div className={classes.resultsTitle}>Анализы отсутствуют</div>
           <div className={classes.resultsInfo}>
-            Готов анализ на пироплазмов
-            <span>12.02.23, Кеша</span>
+            В последнее время ваши питомцы не сдавали анализы
           </div>
           <div className={classes.resultsMore}>
             <Rabbits />

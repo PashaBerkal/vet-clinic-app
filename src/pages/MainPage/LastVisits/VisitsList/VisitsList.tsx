@@ -16,6 +16,7 @@ const VisitsList: FC<VisitsListProps> = ({ visits }) => (
         result={visit.diagnoses[0] ? visit.diagnoses[0].diagnosis_name : 'Нет диагноза'}
         procedure={visit.type}
         key={visit.date + visit.pet.name}
+        id={visit.visit_id}
       />
     ))}
   </div>

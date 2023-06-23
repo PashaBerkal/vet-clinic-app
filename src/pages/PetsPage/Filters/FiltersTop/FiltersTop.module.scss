@@ -1,6 +1,4 @@
 .FiltersTop {
-    display: flex;
-    justify-content: space-between;
     .main {
         display: flex;
         align-items: center;
@@ -16,12 +14,6 @@
             height: 24px;
         }
     }
-    .reset {
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 14px;
-        color: #a29ea3;
-    }
 }
 
 @media (max-width: 1400px) { 
@@ -34,9 +26,6 @@
                 width: 20px;
                 height: 20px;
             }
-        }
-        .reset {
-            font-size: 13px;
         }
     }
 }

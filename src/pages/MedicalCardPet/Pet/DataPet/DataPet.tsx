@@ -12,6 +12,7 @@ interface DataPetProps {
 
 const DataPet: FC<DataPetProps> = ({ breathingRate, pulse, weight }) => (
   <div>
+    {weight && (
     <div className={classes.info}>
       <div className={classes.img}>
         <Weight />
@@ -26,34 +27,39 @@ const DataPet: FC<DataPetProps> = ({ breathingRate, pulse, weight }) => (
         </div>
       </div>
     </div>
-    <div className={classes.info}>
-      <div className={classes.img}>
-        <Pulse />
-      </div>
-      <div className={classes.text}>
-        <div className={classes.left}>
-          Пульс
-          <span>уд/мин</span>
+    )}
+    {pulse && (
+      <div className={classes.info}>
+        <div className={classes.img}>
+          <Pulse />
         </div>
-        <div className={classes.right}>
-          {pulse}
-        </div>
-      </div>
-    </div>
-    <div className={classes.info}>
-      <div className={classes.img}>
-        <BreathingRate />
-      </div>
-      <div className={classes.text}>
-        <div className={classes.left}>
-          Частота дыхания
-          <span>дых/мин</span>
-        </div>
-        <div className={classes.right}>
-          {breathingRate}
+        <div className={classes.text}>
+          <div className={classes.left}>
+            Пульс
+            <span>уд/мин</span>
+          </div>
+          <div className={classes.right}>
+            {pulse}
+          </div>
         </div>
       </div>
-    </div>
+    )}
+    {breathingRate && (
+      <div className={classes.info}>
+        <div className={classes.img}>
+          <BreathingRate />
+        </div>
+        <div className={classes.text}>
+          <div className={classes.left}>
+            Частота дыхания
+            <span>дых/мин</span>
+          </div>
+          <div className={classes.right}>
+            {breathingRate}
+          </div>
+        </div>
+      </div>
+    )}
   </div>
 );
 

@@ -20,9 +20,9 @@ const PetsList = () => {
     .map((option) => option.active.toLocaleLowerCase());
 
   const firstFilteringStep = visits?.filter(({ pet }) => {
-    const name = pet?.name.toLocaleLowerCase();
-    const kindName = pet?.kind?.kind_name.toLocaleLowerCase();
-    const breedName = pet?.breed?.breed_name.toLocaleLowerCase();
+    const name = pet?.name.toLocaleLowerCase() || '';
+    const kindName = pet?.kind?.kind_name.toLocaleLowerCase() || '';
+    const breedName = pet?.breed?.breed_name.toLocaleLowerCase() || '';
     if (
       name.includes(activeName)
       && kindName?.includes(activeKind)

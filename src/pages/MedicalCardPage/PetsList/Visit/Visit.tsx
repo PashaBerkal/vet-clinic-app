@@ -41,7 +41,6 @@ const Visit = ({
           </div>
         </div>
         <div className={classes.arrow}>
-          Первичный диагноз
           <Arrow />
         </div>
       </div>

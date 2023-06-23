@@ -9,7 +9,6 @@ const FiltersTop = () => (
       </div>
       <div className={classes.title}>Фильтры</div>
     </div>
-    <div className={classes.reset}>Сбросить всё</div>
   </div>
 );
 export default FiltersTop;

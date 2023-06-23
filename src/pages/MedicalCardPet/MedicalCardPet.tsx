@@ -28,11 +28,11 @@ const MedicalCardPet = () => {
       <div className={classes.MedicalCardPet}>
         <Pet
           animal={visitHistory.pet.kind.kind_name}
-          breathingRate={visitHistory.breath_beat ? visitHistory.breath_beat : 'Нет данных'}
+          breathingRate={visitHistory.breath_beat}
           breed={visitHistory.pet.breed && visitHistory.pet.breed.breed_name}
           name={visitHistory.pet.name}
-          pulse={visitHistory.heart_beat ? visitHistory.heart_beat : 'Нет данных'}
-          weight={visitHistory.weight ? visitHistory.weight : 'Нет данных'}
+          pulse={visitHistory.heart_beat}
+          weight={visitHistory.weight}
         />
         <div className={classes.infoSection}>
           <DataVisit
