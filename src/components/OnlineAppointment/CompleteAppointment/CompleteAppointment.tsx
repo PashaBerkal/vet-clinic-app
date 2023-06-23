@@ -1,7 +1,6 @@
 import { Button, Checkbox, TextField } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
-import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../../hooks/redux';
 import classes from './CompleteAppointment.module.scss';
 import {
@@ -18,8 +17,6 @@ const CompleteAppointment = () => {
   const { isAgreementAcepted, pet, recordingTime, procedure } = useAppSelector((state) => state.appointment);
   const { data: user } = useFetchUserQuery('');
 
-  const navigate = useNavigate();
-
   const checkboxHandler = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
     dispatch(setIsAgreementAcepted(checked));
   };
@@ -27,9 +24,8 @@ const CompleteAppointment = () => {
   const dateObject = (date: string, time: string) => {
     const dateObj = new Date(date);
     const [hours, minutes] = time.split(':') as unknown as Array<number>;
-    dateObj.setHours(hours);
+    dateObj.setUTCHours(hours);
     dateObj.setMinutes(minutes);
-    console.log({ dateObj, time, hours, minutes });
     return dateObj;
   };
 
@@ -43,7 +39,6 @@ const CompleteAppointment = () => {
       type: procedure.type,
     });
     dispatch(nextStep());
-    navigate('RecordsPage');
   };
 
   return (
@@ -77,7 +72,7 @@ const CompleteAppointment = () => {
           <div className={classes.field}>
             <p className={classes.key}>Дата приема</p>
             <p className={classes.value}>
-              {moment(date).format('L')} {date.getHours()}:{date.getMinutes()}
+              {moment(date).format('L')} {date.getUTCHours()}:{date.getMinutes()}
             </p>
           </div>
         </div>
